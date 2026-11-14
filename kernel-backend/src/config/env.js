@@ -68,8 +68,20 @@ export const env = Object.freeze({
   nodeEnv,
   // Puerto HTTP; se utiliza 3000 si PORT no está definido.
   port: int(process.env.PORT, 3000),
-  // Dirección de red local donde escucha el servidor.
-  host: process.env.HOST ?? "127.0.0.1",
+  // Dirección donde escucha el servidor. En producción (Render) debe
+  // ser 0.0.0.0 para recibir tráfico de fuera del contenedor.
+  host: process.env.HOST ?? (nodeEnv === "production" ? "0.0.0.0" : "127.0.0.1"),
+
+  // Frontends autorizados por CORS, separados por coma.
+  // Ej: CORS_ORIGINS=http://localhost:5173,https://kernel.vercel.app
+  corsOrigins: (process.env.CORS_ORIGINS ?? "http://localhost:5173")
+    .split(",")
+    .map((origen) => origen.trim().replace(/\/$/, ""))
+    .filter(Boolean),
+
+  // Render pone un proxy delante de la API; sin esto el límite de
+  // intentos de login vería a todos los usuarios con la misma IP.
+  trustProxy: nodeEnv === "production",
 
   // PostgreSQL / Supabase
   // Cadena de conexión a la base de datos.

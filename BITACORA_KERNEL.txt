@@ -9,8 +9,7 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   El logo ahora es una K. Funciona bien, se probó entrando con
   Sofía y todo se ve igual que antes.
 - Ojo: no se cambiaron nexdesk_app ni los triggers de Supabase
-  porque si se tocan se rompe la API. Las carpetas siguen como
-  nexdesk-backend y nexdesk-frontend, se cambian al desplegar.
+  porque si se tocan se rompe la API.
 - Ojo 2: como cambió la sesión, toca volver a iniciar sesión.
 
 - Se creó la tabla de equipos en Supabase (11_equipos.sql) y
@@ -24,7 +23,7 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   no puede listarlos.
 - Ojo: para probar como cliente y técnico se cambió la
   contraseña de Ana y Laura. Las nuevas están en
-  nexdesk-backend/.env.pruebas (ese archivo no se sube a git).
+  kernel-backend/.env.pruebas (ese archivo no se sube a git).
 
 - Ya se puede escoger el equipo al crear un ticket. Se cambió
   tickets.validator.js, tickets.controller.js y
@@ -53,7 +52,20 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   Funciona: Ana creó "La pantalla del iMac parpadea" con su
   iMac y aparece en el historial de ese equipo.
 - REGISTRO DE EQUIPOS TERMINADO.
+- Se subió todo a GitHub (commit 532909e): cambio de nombre,
+  equipos y esta bitácora. Para tenerlo: git pull.
+
+- Se preparó el proyecto para desplegar. Backend: env.js y
+  app.js ahora leen CORS_ORIGINS (qué frontends pueden usar la
+  API) y en producción escuchan en 0.0.0.0 y confían en el proxy
+  de Render. Frontend: vercel.json (para que al recargar una
+  página no salga 404) y .env.example con VITE_API_URL.
+  Funciona: la API arranca igual en local y solo responde CORS
+  a los frontends de la lista.
+
+- Las carpetas ahora se llaman kernel-backend y kernel-frontend
+  (OJO: después del git pull, pasar los .env de las carpetas
+  viejas a las nuevas y correr npm install en cada una).
 
 PENDIENTE
-- Despliegue (Render + Vercel).
-- Subir todo esto a GitHub.
+- Desplegar a mano: API en Render, frontend en Vercel.

@@ -35,13 +35,18 @@ const app = express();
 
 app.disable("x-powered-by");
 
+// Confiar en el proxy de Render (IP real del cliente)
+if (env.trustProxy) {
+  app.set("trust proxy", 1);
+}
+
 // Cabeceras de seguridad HTTP
 app.use(helmet());
 
-// Configuración CORS para React + Vite
+// Configuración CORS: local (Vite) y el frontend desplegado (CORS_ORIGINS)
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: env.corsOrigins,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),

@@ -32,7 +32,7 @@ Kernel/
 │   │   └── 10_verificacion_integral.sql
 │   ├── .env.example
 │   └── package.json
-└── nexdesk-frontend/
+└── kernel-frontend/
     ├── src/                     <- entregada por el docente
     ├── public/
     │   ├── favicon.svg
@@ -62,7 +62,7 @@ Si PowerShell bloquea `npm.ps1`, usar `npm.cmd` en los comandos, o configurar la
 Desde la carpeta de trabajo del estudiante (no dentro de `BE`):
 
 ```powershell
-npm create vite@latest nexdesk-frontend
+npm create vite@latest kernel-frontend
 ```
 
 Seleccionar las opciones interactivas:
@@ -75,7 +75,7 @@ Seleccionar las opciones interactivas:
 Entrar al proyecto:
 
 ```powershell
-cd nexdesk-frontend
+cd kernel-frontend
 npm install (Solo si seleccionó NO en el paso 4)
 ```
 
@@ -95,7 +95,7 @@ El proyecto docente de referencia utiliza React 19, Vite 8 y ESLint 10. Si la pl
 
 Con el servidor Vite detenido:
 
-1. Abrir `nexdesk-frontend/` en VS Code.
+1. Abrir `kernel-frontend/` en VS Code.
 2. **Reemplazar el contenido de `src/`** con la carpeta `src/` entregada. Evitar el error de crear `src/src/`.
 3. Reemplazar `.gitignore` e `index.html` en la **raíz** del proyecto.
 4. Crear/reemplazar `.env` en la **raíz** (no dentro de `src/`).
@@ -164,7 +164,7 @@ El backend debe permanecer activo mientras se utiliza React. Si falla, revisar l
 
 ## 7. Iniciar el frontend
 
-En una **segunda terminal** de VS Code, dentro de `nexdesk-frontend/`:
+En una **segunda terminal** de VS Code, dentro de `kernel-frontend/`:
 
 ```powershell
 npm run dev
