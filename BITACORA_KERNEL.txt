@@ -67,5 +67,19 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   (OJO: después del git pull, pasar los .env de las carpetas
   viejas a las nuevas y correr npm install en cada una).
 
+- PROYECTO DESPLEGADO (en línea):
+    Página: https://kernellab-hazel.vercel.app
+    API:    https://kernel-fszg.onrender.com/api/estado
+  La API está en Render (plan gratis, carpeta kernel-backend) y
+  la página en Vercel (carpeta kernel-frontend). Se conectan con
+  VITE_API_URL en Vercel y CORS_ORIGINS en Render.
+  Funciona: se entró con Sofía desde la página publicada.
+- Ojo: Render gratis se apaga si nadie lo usa en 15 min y la
+  primera carga tarda como 50 s. Antes de presentar, abrir la
+  página un rato antes.
+- Ojo 2: cada git push a main vuelve a desplegar todo solo.
+  Las contraseñas de las variables están solo en Render, no en
+  el repo.
+
 PENDIENTE
-- Desplegar a mano: API en Render, frontend en Vercel.
+- Nada por ahora.
