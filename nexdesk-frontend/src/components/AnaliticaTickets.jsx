@@ -206,7 +206,7 @@ export default function AnaliticaTickets({
       .toLocaleDateString("sv-SE");
 
     const nombreArchivo =
-      `NEXDESK_reporte_tickets_${fecha}.csv`;
+      `Kernel_reporte_tickets_${fecha}.csv`;
 
     descargarCSV(nombreArchivo, filas);
   }
@@ -230,7 +230,7 @@ export default function AnaliticaTickets({
     pdf.setTextColor(255, 255, 255);
     pdf.setFont("helvetica", "bold");
     pdf.setFontSize(19);
-    pdf.text("NEXDESK", margen, 13);
+    pdf.text("Kernel", margen, 13);
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(9);
     pdf.text("Sistema Integral de Gestion de Soporte Tecnico", margen, 20);
@@ -320,12 +320,12 @@ export default function AnaliticaTickets({
       pdf.line(margen, alto - 12, ancho - margen, alto - 12);
       pdf.setTextColor(...gris);
       pdf.setFontSize(8);
-      pdf.text("NEXDESK | Reporte de tickets", margen, alto - 7);
+      pdf.text("Kernel | Reporte de tickets", margen, alto - 7);
       pdf.text(`Pagina ${pagina} de ${paginas}`, ancho - margen, alto - 7, { align: "right" });
     }
 
     const fechaArchivo = new Date().toLocaleDateString("sv-SE");
-    pdf.save(`NEXDESK_reporte_tickets_${fechaArchivo}.pdf`);
+    pdf.save(`Kernel_reporte_tickets_${fechaArchivo}.pdf`);
   }
 
   // ========================================

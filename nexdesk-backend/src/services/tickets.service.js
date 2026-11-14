@@ -3,7 +3,7 @@ import { pool } from "../config/db.js";
 
 const CAMPOS = `
   id, titulo, descripcion, prioridad, estado,
-  usuario_id, tecnico_id, categoria_id, solucion,
+    usuario_id, tecnico_id, categoria_id, equipo_id, solucion,
   fecha_creacion, fecha_actualizacion, fecha_cierre
 `;
 
@@ -34,7 +34,7 @@ export async function listarTickets(estado, usuario) {
     `SELECT
        t.id, t.titulo, t.descripcion, t.prioridad,
        t.estado, t.usuario_id, t.tecnico_id,
-       t.categoria_id, t.solucion,
+              t.categoria_id, t.equipo_id, t.solucion,
        t.fecha_creacion, t.fecha_actualizacion,
        t.fecha_cierre
      FROM public.tickets t
@@ -86,8 +86,33 @@ export async function crearTicket(datos) {
     descripcion,
     prioridad,
     usuario_id,
-    categoria_id
+    categoria_id,
+    equipo_id,
+    rol
   } = datos;
+
+  // Si viene un equipo: debe estar activo y ser del cliente.
+  // El admin puede usar cualquier equipo activo.
+  if (equipo_id) {
+    const administrativo =
+      ["superadmin", "admin"].includes(rol);
+
+    const { rows: equipo } = await pool.query(
+      `SELECT id
+       FROM public.equipos
+       WHERE id = $1
+         AND activo = TRUE
+         AND ($2::boolean = TRUE OR usuario_id = $3)`,
+      [equipo_id, administrativo, usuario_id]
+    );
+
+    if (!equipo.length) {
+      throw errorHttp(
+        "El equipo no existe, está inactivo o no te pertenece",
+        409
+      );
+    }
+  }
 
   const { rows } = await pool.query(
     `INSERT INTO public.tickets (
@@ -96,10 +121,11 @@ export async function crearTicket(datos) {
        prioridad,
        usuario_id,
        categoria_id,
+       equipo_id,
        estado
      )
      SELECT
-       $1, $2, $3, $4, c.id, 'abierto'
+       $1, $2, $3, $4, c.id, $6, 'abierto'
      FROM public.categorias c
      WHERE c.id = $5
        AND c.activa = TRUE
@@ -109,7 +135,8 @@ export async function crearTicket(datos) {
       descripcion,
       prioridad,
       usuario_id,
-      categoria_id
+      categoria_id,
+      equipo_id ?? null
     ]
   );
 
@@ -122,7 +149,6 @@ export async function crearTicket(datos) {
 
   return rows[0];
 }
-
 // ==========================================
 // 4. ASIGNAR TÉCNICO
 // ==========================================

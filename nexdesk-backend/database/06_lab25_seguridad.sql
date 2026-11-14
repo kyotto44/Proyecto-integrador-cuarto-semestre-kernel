@@ -1,5 +1,5 @@
 -- ==========================================
--- NEXDESK - LAB NODE 25
+-- Kernel - LAB NODE 25
 -- SEGURIDAD Y CONTROL DE PRIMER ACCESO
 -- ==========================================
 
@@ -11,7 +11,7 @@ ADD COLUMN IF NOT EXISTS debe_cambiar_password
 BOOLEAN NOT NULL DEFAULT TRUE;
 
 -- 2. Cada identidad de Supabase Auth debe
--- corresponder como máximo a un perfil NEXDESK.
+-- corresponder como máximo a un perfil Kernel.
 CREATE UNIQUE INDEX IF NOT EXISTS
 ux_usuarios_auth_user_id
 ON public.usuarios(auth_user_id)

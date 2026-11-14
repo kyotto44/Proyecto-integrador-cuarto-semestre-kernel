@@ -36,8 +36,16 @@ export const validarCrearTicket = [
     .isIn(["baja", "media", "alta"]),
 
   body("categoria_id")
+    .isInt({ min: 1 }),
+
+  // Opcional: el equipo al que pertenece la falla
+  body("equipo_id")
+    .optional({ nullable: true })
     .isInt({ min: 1 })
+    .withMessage("equipo_id debe ser un número entero positivo")
 ];
+
+
 
 export const validarAsignacion = [
   body("tecnico_id")

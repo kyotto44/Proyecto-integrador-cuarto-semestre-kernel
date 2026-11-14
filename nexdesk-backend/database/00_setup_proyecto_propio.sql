@@ -1,5 +1,5 @@
 -- ==========================================
--- NEXDESK - MONTAJE COMPLETO EN UN PROYECTO SUPABASE NUEVO
+-- Kernel - MONTAJE COMPLETO EN UN PROYECTO SUPABASE NUEVO
 -- Ejecutar una sola vez en SQL Editor.
 -- Incluye: esquema (lab 22), semillas (lab 22),
 -- seguridad lab 25 y usuarios de Supabase Auth vinculados por UUID.

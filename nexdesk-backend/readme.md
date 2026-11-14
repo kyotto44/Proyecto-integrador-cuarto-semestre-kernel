@@ -1,11 +1,11 @@
-# README — NEXDESK · LAB NODE 25
+# README — Kernel · LAB NODE 25
 
 > **Guía práctica de instalación, configuración, integración y pruebas de API REST**  
 > Node.js / Express / Supabase Authentication / PostgreSQL / Postman  
 
 ## 0. Objetivo y alcance
 
-Continuar NEXDESK desde LAB 24 para incorporar autenticación con Supabase Auth, JWT, autorización por roles RBAC, gestión administrativa de usuarios, cambio obligatorio de contraseña, gestión de perfiles técnicos, categorías, tickets y seguimientos; evitar accesos indebidos **BOLA** [Broken Object Level Authorization	Autorización defectuosa a nivel de objeto] /**IDOR** [Insecure Direct Object Reference	Referencia directa insegura a objetos] y registrar evidencia en Postman y PostgreSQL. La baja de usuarios y categorías es lógica: no se implementa `DELETE` físico.
+Continuar Kernel desde LAB 24 para incorporar autenticación con Supabase Auth, JWT, autorización por roles RBAC, gestión administrativa de usuarios, cambio obligatorio de contraseña, gestión de perfiles técnicos, categorías, tickets y seguimientos; evitar accesos indebidos **BOLA** [Broken Object Level Authorization	Autorización defectuosa a nivel de objeto] /**IDOR** [Insecure Direct Object Reference	Referencia directa insegura a objetos] y registrar evidencia en Postman y PostgreSQL. La baja de usuarios y categorías es lógica: no se implementa `DELETE` físico.
 
 Diferencia principal:
 - **IDOR** describe una situación en la que un identificador manipulable permite acceder indebidamente a un recurso.
@@ -221,7 +221,7 @@ src/server.js  →  src/app.js
 ## 4. Preparación de Postman
 
 1. Importar `NEXDESK_LAB26.postman_collection.json` y `NEXDESK_LAB26.postman_environment.json`.
-2. Seleccionar el entorno **NEXDESK LAB26 - Local**.
+2. Seleccionar el entorno **Kernel LAB26 - Local**.
 3. Completar `baseUrl`, correos y contraseñas reales de las cuentas de laboratorio.
 4. Confirmar los valores iniciales de IDs: `sofiaId`, `categoriaId` y los que dependan de registros existentes. Las solicitudes de creación guardan automáticamente los IDs cuando la respuesta tiene la forma esperada.
 5. Revisar **Authorization → Bearer Token** en cada solicitud: Sofía, Pedro, Ana, María o técnico según la prueba. Los scripts de colección guardan tokens e IDs como **variables de colección**, no como variables de entorno.

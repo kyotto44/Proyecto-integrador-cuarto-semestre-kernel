@@ -2,7 +2,7 @@
 import * as service from "../services/usuarios.service.js";
 
 // ==========================================
-// CONTROLADOR DE USUARIOS - NEXDESK
+// CONTROLADOR DE USUARIOS - Kernel
 // LAB NODE 26
 // ==========================================
 

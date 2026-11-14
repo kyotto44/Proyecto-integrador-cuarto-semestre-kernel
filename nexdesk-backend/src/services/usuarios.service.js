@@ -5,7 +5,7 @@ import { pool } from "../config/db.js";
 import { supabaseAdmin } from "../config/supabaseAdmin.js";
 
 // ==========================================
-// SERVICIO DE USUARIOS - NEXDESK
+// SERVICIO DE USUARIOS - Kernel
 // LAB NODE 26
 // ==========================================
 

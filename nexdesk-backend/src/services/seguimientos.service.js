@@ -2,7 +2,7 @@
 import { pool } from "../config/db.js";
 
 // ==========================================
-// NEXDESK - LAB NODE 26.8.3
+// Kernel - LAB NODE 26.8.3
 // SERVICE: SEGUIMIENTOS
 // ==========================================
 

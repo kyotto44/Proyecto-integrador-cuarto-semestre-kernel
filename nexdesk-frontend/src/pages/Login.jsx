@@ -25,7 +25,7 @@ export default function Login() {
 
     // Evitar conservar una bienvenida anterior
     sessionStorage.removeItem(
-      "nexdesk_mostrar_bienvenida"
+      "kernel_mostrar_bienvenida"
     );
 
     try {
@@ -43,7 +43,7 @@ export default function Login() {
       } else {
         // Activar notificación de bienvenida
         sessionStorage.setItem(
-          "nexdesk_mostrar_bienvenida",
+          "kernel_mostrar_bienvenida",
           "1"
         );
 
@@ -75,12 +75,12 @@ export default function Login() {
 
                 {/* Identidad visual */}
                 <div className="text-center mb-4">
-                  <div className="nexdesk-logo mx-auto mb-3">
-                    N
+                  <div className="kernel-logo mx-auto mb-3">
+                    K
                   </div>
 
                   <h1 className="h3 fw-bold text-primary">
-                    NEXDESK
+                    Kernel
                   </h1>
 
                   <p className="text-secondary small">
@@ -159,7 +159,7 @@ export default function Login() {
                 <EstadoBackend />
 
                 <p className="text-center text-secondary small mt-4 mb-0">
-                  Acceso autorizado a NEXDESK
+                  Acceso autorizado a Kernel
                 </p>
 
               </div>

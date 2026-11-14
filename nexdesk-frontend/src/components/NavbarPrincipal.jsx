@@ -27,7 +27,7 @@ export default function NavbarPrincipal({ abrirMenu }) {
 
   function cerrarSesion() {
     sessionStorage.removeItem(
-      "nexdesk_mostrar_bienvenida"
+      "kernel_mostrar_bienvenida"
     );
 
     logout();
@@ -40,14 +40,14 @@ export default function NavbarPrincipal({ abrirMenu }) {
   // ==========================================
 
   return (
-    <header className="nexdesk-topbar">
+    <header className="kernel-topbar">
 
       {/* SECCIÓN IZQUIERDA */}
       <div className="d-flex align-items-center gap-3">
 
         <button
           type="button"
-          className="btn btn-light nexdesk-menu-toggle"
+          className="btn btn-light kernel-menu-toggle"
           onClick={abrirMenu}
           aria-label="Abrir menú"
         >
@@ -81,11 +81,11 @@ export default function NavbarPrincipal({ abrirMenu }) {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <span className="nexdesk-avatar">
+            <span className="kernel-avatar">
               {inicial}
             </span>
 
-            <span className="text-start nexdesk-user-info">
+            <span className="text-start kernel-user-info">
 
               <strong className="d-block small">
                 {nombreCompleto || "Usuario"}

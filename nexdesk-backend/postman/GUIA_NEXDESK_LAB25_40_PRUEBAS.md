@@ -1,11 +1,11 @@
-# NEXDESK — LAB NODE 25
+# Kernel — LAB NODE 25
 ## Guía de ejecución de 40 pruebas esenciales en Postman
 
 > **Alcance:** Ejecutar solo sobre datos de laboratorio.
 
 ## 1. Preparación en VS Code
 
-1. Abrir el proyecto backend NEXDESK en VS Code.
+1. Abrir el proyecto backend Kernel en VS Code.
 2. En la terminal integrada, ejecutar `npm install` (si aún no se han instalado dependencias).
 3. Configurar `.env` con las variables reales del proyecto; no subir el archivo a GitHub.
 4. Confirmar que Supabase PostgreSQL y Supabase Auth estén configurados y que Sofía, Pedro, Ana, María y un técnico estén vinculados a `public.usuarios`.
@@ -17,7 +17,7 @@
 1. Abrir Postman → **Import**.
 2. Importar `NEXDESK_LAB25_40_PRUEBAS.postman_collection.json`.
 3. Importar `NEXDESK_LAB25_40_PRUEBAS.postman_environment.json`.
-4. Seleccionar el entorno **NEXDESK LAB25 - 40 pruebas - Local** en la esquina superior derecha.
+4. Seleccionar el entorno **Kernel LAB25 - 40 pruebas - Local** en la esquina superior derecha.
 5. En **Environments**, completar los correos y contraseñas reales; **no compartir ni exportar** un entorno con secretos.
 6. Cambiar `runId` a un identificador alfanumérico diferente para cada ejecución, por ejemplo `A002`, y usar correos de prueba nuevos.
 7. Ejecutar las solicitudes **una a una y en orden**. Revisar `Response`, `Status`, `Test Results` y variables de colección.

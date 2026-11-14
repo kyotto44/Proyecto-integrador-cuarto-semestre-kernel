@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "NEXDESK | LAB NODE 25 | 40 pruebas esenciales | Actualizada",
+    "name": "Kernel | LAB NODE 25 | 40 pruebas esenciales | Actualizada",
     "_postman_id": "5d863906-1f17-4b13-a00d-2adab26b2401",
     "description": "40 solicitudes esenciales, secuencia corregida para registrar seguimiento antes de cerrar el ticket. Usar únicamente en laboratorio, con Auth y datos previamente configurados. No ejecutarlas sobre producción.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"

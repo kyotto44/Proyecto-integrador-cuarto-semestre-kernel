@@ -1,4 +1,4 @@
-# Orden de ejecución SQL — NEXDESK
+# Orden de ejecución SQL — Kernel
 
 **Sistema Integral de Gestión de Soporte Técnico**  
 **Motor de base de datos:** PostgreSQL / Supabase  
@@ -6,7 +6,7 @@
 
 ## 1. Objetivo
 
-Establecer el procedimiento de preparación, instalación, actualización y verificación de la base de datos de NEXDESK, garantizando que se trabaje con una estructura homogénea y que los cambios se apliquen en el orden correspondiente.
+Establecer el procedimiento de preparación, instalación, actualización y verificación de la base de datos de Kernel, garantizando que se trabaje con una estructura homogénea y que los cambios se apliquen en el orden correspondiente.
 
 La base de datos incluye:
 
@@ -26,7 +26,7 @@ La base de datos incluye:
 
 ## 2. Escenario A — Base de datos NUEVA
 
-**Aplicable cuando el estudiante crea un proyecto nuevo en Supabase y todavía no existen las tablas de NEXDESK.**
+**Aplicable cuando el estudiante crea un proyecto nuevo en Supabase y todavía no existen las tablas de Kernel.**
 
 ### Orden de ejecución
 
@@ -40,7 +40,7 @@ No es necesario ejecutar scripts de limpieza porque el proyecto es nuevo.
 
 **Paso 2. Ejecutar `01_schema.sql`**
 
-Ejecutar una sola vez el esquema integral de NEXDESK.
+Ejecutar una sola vez el esquema integral de Kernel.
 
 Este archivo contiene las siete tablas:
 
@@ -66,7 +66,7 @@ Ejecutar las consultas de verificación para comprobar que se crearon correctame
 
 **Paso 5. Configurar la autenticación**
 
-Crear las cuentas de acceso mediante el mecanismo de administración de NEXDESK y Supabase Auth.
+Crear las cuentas de acceso mediante el mecanismo de administración de Kernel y Supabase Auth.
 
 Comprobar:
 
@@ -82,7 +82,7 @@ Comprobar:
 
 ## 3. Escenario B — Reconstrucción de una base de datos ANTIGUA
 
-**Aplicable cuando el estudiante ya tiene una base de datos de los primeros laboratorios y desea reemplazarla completamente por la versión integral de NEXDESK.**
+**Aplicable cuando el estudiante ya tiene una base de datos de los primeros laboratorios y desea reemplazarla completamente por la versión integral de Kernel.**
 
 Este procedimiento es destructivo y debe realizarse exclusivamente en un proyecto de laboratorio descartable, previa copia de seguridad.
 
@@ -106,7 +106,7 @@ La limpieza de `public` tampoco elimina automáticamente las identidades existen
 
 **Paso 3. Ejecutar `00_VERIFICAR_limpieza_esquema.sql`**
 
-Verificar que no queden tablas, funciones, índices ni triggers de NEXDESK dentro de `public`.
+Verificar que no queden tablas, funciones, índices ni triggers de Kernel dentro de `public`.
 
 Para un esquema vacío se esperan los siguientes resultados:
 
@@ -121,7 +121,7 @@ Esta verificación no comprueba dependencias externas ni la restauración de tod
 
 **Paso 4. Ejecutar `01_schema.sql`**
 
-Crear la estructura integral de NEXDESK.
+Crear la estructura integral de Kernel.
 
 **Paso 5. Ejecutar `02_seed.sql`**
 
@@ -133,7 +133,7 @@ Comprobar que la estructura quedó correctamente instalada.
 
 **Paso 7. Configurar y validar Supabase Auth**
 
-Revisar las cuentas preexistentes en `auth.users` y crear o vincular los perfiles mediante el flujo administrativo de NEXDESK.
+Revisar las cuentas preexistentes en `auth.users` y crear o vincular los perfiles mediante el flujo administrativo de Kernel.
 
 No eliminar indiscriminadamente las identidades de Supabase Auth.
 
@@ -163,7 +163,7 @@ Iniciar el backend y frontend y verificar:
 3. Revisar cuáles migraciones se han aplicado.
 4. Ejecutar únicamente las migraciones pendientes, en el orden `06` → `07` → `08` → `09`.
 5. Ejecutar `10_verificacion_integral.sql`.
-6. Comprobar el funcionamiento de NEXDESK.
+6. Comprobar el funcionamiento de Kernel.
 
 **No ejecutar `00_ADVERTENCIA_limpiar_esquema.sql` ni el nuevo `01_schema.sql` integral sobre una base existente cuyos datos se desean conservar.**
 
@@ -175,7 +175,7 @@ Iniciar el backend y frontend y verificar:
 |---|---|---|
 | `00_ADVERTENCIA_limpiar_esquema.sql` | Elimina y recrea `public` y sus dependencias | Destructivo, opcional |
 | `00_VERIFICAR_limpieza_esquema.sql` | Verifica que el esquema esté vacío | Solo lectura |
-| `01_schema.sql` | Estructura integral de NEXDESK | Instalación nueva |
+| `01_schema.sql` | Estructura integral de Kernel | Instalación nueva |
 | `02_seed.sql` | Datos iniciales de práctica | Semillas |
 | `03_queries.sql` | Consultas didácticas | Auxiliar |
 | `04_tests.sql` | Pruebas originales del laboratorio | Pruebas |
@@ -194,7 +194,7 @@ Los archivos `03`, `04` y `05` son auxiliares y no forman parte obligatoria de l
 
 ### 6.1. Seguridad RLS
 
-Las siete tablas de NEXDESK deben tener RLS habilitada.
+Las siete tablas de Kernel deben tener RLS habilitada.
 
 Las funciones de notificación utilizan `SECURITY INVOKER`, por lo que sus operaciones dependen de los privilegios efectivos del rol PostgreSQL que ejecuta las sentencias.
 
@@ -270,4 +270,4 @@ La instalación se considerará completada cuando:
 - Los reportes CSV y PDF puedan generarse correctamente.
 - Las pruebas funcionales y de autorización finalicen satisfactoriamente.
 
-**Resultado esperado:** una instalación homogénea y verificable de NEXDESK, apta para finalizar el proyecto de construcción de software con Node.js, Express, React, PostgreSQL y Supabase.
+**Resultado esperado:** una instalación homogénea y verificable de Kernel, apta para finalizar el proyecto de construcción de software con Node.js, Express, React, PostgreSQL y Supabase.

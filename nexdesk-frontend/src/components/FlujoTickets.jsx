@@ -106,7 +106,7 @@ export default function FlujoTickets() {
                         </span>
 
                         <h2 className="h5 fw-bold mb-2">
-                            ¿Cómo funciona NEXDESK?
+                            ¿Cómo funciona Kernel?
                         </h2>
 
                         <p className="text-secondary mb-0">
@@ -123,16 +123,16 @@ export default function FlujoTickets() {
 
                 {/* Diagrama SVG compacto */}
 
-                <div className="nexdesk-flujo-scroll">
+                <div className="kernel-flujo-scroll">
                     <svg
                         viewBox="0 0 560 245"
-                        className="nexdesk-flujo-svg"
+                        className="kernel-flujo-svg"
                         role="group"
                         aria-label="Flujo interactivo de gestión de tickets"
                     >
                         <defs>
                             <marker
-                                id="flecha-nexdesk"
+                                id="flecha-kernel"
                                 viewBox="0 0 10 10"
                                 refX="9"
                                 refY="5"
@@ -154,7 +154,7 @@ export default function FlujoTickets() {
                             stroke="#94a3b8"
                             strokeWidth="2"
                             strokeLinecap="round"
-                            markerEnd="url(#flecha-nexdesk)"
+                            markerEnd="url(#flecha-kernel)"
                         >
                             <path d="M175 56 H194" />
                             <path d="M355 56 H374" />
@@ -186,7 +186,7 @@ export default function FlujoTickets() {
                                             setSeleccionada(item.id);
                                         }
                                     }}
-                                    className="nexdesk-flujo-nodo"
+                                    className="kernel-flujo-nodo"
                                 >
                                     {/* Tarjeta */}
 
@@ -265,7 +265,7 @@ export default function FlujoTickets() {
                 {/* Panel de información */}
 
                 <div
-                    className="nexdesk-flujo-detalle mt-3"
+                    className="kernel-flujo-detalle mt-3"
                     style={{ borderLeftColor: etapa.color }}
                     aria-live="polite"
                 >

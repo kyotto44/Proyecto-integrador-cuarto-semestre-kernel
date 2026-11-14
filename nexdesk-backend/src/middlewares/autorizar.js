@@ -1,6 +1,6 @@
 
  // ==========================================
- // MIDDLEWARE DE AUTORIZACIÓN RBAC - NEXDESK
+ // MIDDLEWARE DE AUTORIZACIÓN RBAC - Kernel
  // ==========================================
 
 export function autorizar(...rolesPermitidos) {

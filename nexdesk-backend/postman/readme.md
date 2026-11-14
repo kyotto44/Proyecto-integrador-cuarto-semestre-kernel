@@ -1,4 +1,4 @@
-**# README — NEXDESK · LAB NODE 25**
+**# README — Kernel · LAB NODE 25**
 
 
 
@@ -12,7 +12,7 @@
 
 
 
-Continuar NEXDESK desde LAB 24 para incorporar autenticación con Supabase Auth, JWT, autorización por roles RBAC, gestión administrativa de usuarios, cambio obligatorio de contraseña, gestión de perfiles técnicos, categorías, tickets y seguimientos; evitar accesos indebidos **\*\*BOLA\*\*** [Broken Object Level Authorization  Autorización defectuosa a nivel de objeto] /**\*\*IDOR\*\*** [Insecure Direct Object Reference  Referencia directa insegura a objetos] y registrar evidencia en Postman y PostgreSQL. La baja de usuarios y categorías es lógica: no se implementa \`DELETE\` físico.
+Continuar Kernel desde LAB 24 para incorporar autenticación con Supabase Auth, JWT, autorización por roles RBAC, gestión administrativa de usuarios, cambio obligatorio de contraseña, gestión de perfiles técnicos, categorías, tickets y seguimientos; evitar accesos indebidos **\*\*BOLA\*\*** [Broken Object Level Authorization  Autorización defectuosa a nivel de objeto] /**\*\*IDOR\*\*** [Insecure Direct Object Reference  Referencia directa insegura a objetos] y registrar evidencia en Postman y PostgreSQL. La baja de usuarios y categorías es lógica: no se implementa \`DELETE\` físico.
 
 
 
@@ -444,7 +444,7 @@ src/server.js  →  src/app.js
 
 1\. Importar \`NEXDESK_LAB25_76_PRUEBAS.postman_collection.json\` y \`NEXDESK_LAB25_76_PRUEBAS.postman_environment.json\`.
 
-2\. Seleccionar el entorno **\*\*NEXDESK LAB25 - Local\*\***.
+2\. Seleccionar el entorno **\*\*Kernel LAB25 - Local\*\***.
 
 3\. Completar \`baseUrl\`, correos y contraseñas reales de las cuentas de laboratorio.
 

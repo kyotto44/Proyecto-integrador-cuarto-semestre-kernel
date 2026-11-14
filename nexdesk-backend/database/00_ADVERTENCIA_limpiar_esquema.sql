@@ -1,5 +1,5 @@
 -- ============================================================
--- NEXDESK - LIMPIEZA DESTRUCTIVA DEL ESQUEMA PUBLIC
+-- Kernel - LIMPIEZA DESTRUCTIVA DEL ESQUEMA PUBLIC
 -- PostgreSQL / Supabase
 --
 -- ADVERTENCIA:

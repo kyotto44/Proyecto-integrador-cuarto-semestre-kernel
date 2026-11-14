@@ -38,11 +38,11 @@ export default function Dashboard() {
 
   const [mostrarBienvenida, setMostrarBienvenida] = useState(
     () =>
-      sessionStorage.getItem("nexdesk_mostrar_bienvenida") === "1"
+      sessionStorage.getItem("kernel_mostrar_bienvenida") === "1"
   );
 
   const cerrarBienvenida = useCallback(() => {
-    sessionStorage.removeItem("nexdesk_mostrar_bienvenida");
+    sessionStorage.removeItem("kernel_mostrar_bienvenida");
     setMostrarBienvenida(false);
   }, []);
 
@@ -72,7 +72,7 @@ export default function Dashboard() {
         </h1>
 
         <p className="text-secondary mb-0">
-          Bienvenido al centro de gestión de NEXDESK.
+          Bienvenido al centro de gestión de Kernel.
         </p>
       </div>
 
@@ -137,9 +137,9 @@ export default function Dashboard() {
               to={modulo.ruta}
               className="text-decoration-none"
             >
-              <div className="card nexdesk-module-card h-100 border-0 shadow-sm rounded-4">
+              <div className="card kernel-module-card h-100 border-0 shadow-sm rounded-4">
                 <div className="card-body p-4">
-                  <div className="nexdesk-module-icon mb-3">
+                  <div className="kernel-module-icon mb-3">
                     {modulo.icono}
                   </div>
 
@@ -163,7 +163,7 @@ export default function Dashboard() {
 
       <div className="alert alert-light border mt-4 rounded-3">
         <FlujoTickets />
-        Los módulos se conectarán a la API REST de NEXDESK
+        Los módulos se conectarán a la API REST de Kernel
         en los siguientes bloques.
       </div>
 

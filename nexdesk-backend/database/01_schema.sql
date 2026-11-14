@@ -1,4 +1,4 @@
--- NEXDESK | ESQUEMA INTEGRAL PARA INSTALACION NUEVA
+-- Kernel | ESQUEMA INTEGRAL PARA INSTALACION NUEVA
 -- NO ejecutar sobre una base existente: crea objetos sin IF NOT EXISTS.
 -- Incluye esquema original, primer acceso y notificaciones.
 
@@ -256,7 +256,7 @@ ADD COLUMN IF NOT EXISTS debe_cambiar_password
 BOOLEAN NOT NULL DEFAULT TRUE;
 
 -- 2. Cada identidad de Supabase Auth debe
--- corresponder como máximo a un perfil NEXDESK.
+-- corresponder como máximo a un perfil Kernel.
 CREATE UNIQUE INDEX IF NOT EXISTS
 ux_usuarios_auth_user_id
 ON public.usuarios(auth_user_id)
@@ -264,7 +264,7 @@ WHERE auth_user_id IS NOT NULL;
 
 -- NOTIFICACIONES (integrado desde 07, 08 y 09)
 -- ==================================================
--- NEXDESK - MODULO DE NOTIFICACIONES
+-- Kernel - MODULO DE NOTIFICACIONES
 -- ==================================================
 
 CREATE TABLE IF NOT EXISTS public.notificaciones (

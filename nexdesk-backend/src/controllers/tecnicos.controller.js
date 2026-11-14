@@ -3,7 +3,7 @@ import * as service
   from "../services/tecnicos.service.js";
 
 // ==========================================
-// NEXDESK - LAB NODE 26
+// Kernel - LAB NODE 26
 // CONTROLADOR DE TÉCNICOS
 // ==========================================
 

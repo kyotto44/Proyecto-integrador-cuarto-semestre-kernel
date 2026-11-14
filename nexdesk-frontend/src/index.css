@@ -7,7 +7,7 @@
 
 body { margin: 0; min-width: 320px; }
 #root { min-height: 100vh; }
-.nexdesk-logo {
+.kernel-logo {
   width: 64px;
   height: 64px;
   display: flex;
@@ -22,9 +22,9 @@ body { margin: 0; min-width: 320px; }
 pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 
 
-/* Notificación de bienvenida NEXDESK */
+/* Notificación de bienvenida Kernel */
 
-.nexdesk-toast {
+.kernel-toast {
   position: fixed;
   top: 24px;
   right: 24px;
@@ -44,13 +44,13 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   pointer-events: none;
 }
 
-.nexdesk-toast.visible {
+.kernel-toast.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.nexdesk-toast-icon {
+.kernel-toast-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +64,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   font-weight: 700;
 }
 
-.nexdesk-toast-progress {
+.kernel-toast-progress {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -72,24 +72,24 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   width: 100%;
   background: #198754;
   transform-origin: left;
-  animation: nexdesk-progress 4.3s linear forwards;
+  animation: kernel-progress 4.3s linear forwards;
 }
 
-@keyframes nexdesk-progress {
+@keyframes kernel-progress {
   from { transform: scaleX(1); }
   to { transform: scaleX(0); }
 }
 
 @media (max-width: 576px) {
-  .nexdesk-toast {
+  .kernel-toast {
     top: 12px;
     right: 16px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nexdesk-toast,
-  .nexdesk-toast-progress {
+  .kernel-toast,
+  .kernel-toast-progress {
     transition: none;
     animation: none;
   }
@@ -97,16 +97,16 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 
 
 /* =========================================
-   NEXDESK - LAB 26.4
+   Kernel - LAB 26.4
    Layout principal
 ========================================= */
 
-.nexdesk-app {
+.kernel-app {
   min-height: 100vh;
   background: #f5f7fb;
 }
 
-.nexdesk-sidebar {
+.kernel-sidebar {
   position: fixed;
   inset: 0 auto 0 0;
   width: 260px;
@@ -118,7 +118,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   transition: transform 0.25s ease;
 }
 
-.nexdesk-sidebar-brand {
+.kernel-sidebar-brand {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -126,19 +126,19 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.nexdesk-sidebar-brand strong {
+.kernel-sidebar-brand strong {
   display: block;
   font-size: 19px;
   letter-spacing: 0.4px;
 }
 
-.nexdesk-sidebar-brand small {
+.kernel-sidebar-brand small {
   display: block;
   color: #aab7cc;
   font-size: 11px;
 }
 
-.nexdesk-brand-icon {
+.kernel-brand-icon {
   width: 42px;
   height: 42px;
   background: #0d6efd;
@@ -149,7 +149,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   font-size: 23px;
 }
 
-.nexdesk-sidebar-label {
+.kernel-sidebar-label {
   color: #8799b5;
   font-size: 11px;
   font-weight: 700;
@@ -157,13 +157,13 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   padding: 28px 22px 12px;
 }
 
-.nexdesk-sidebar-nav {
+.kernel-sidebar-nav {
   padding: 0 12px;
   flex: 1;
   overflow-y: auto;
 }
 
-.nexdesk-nav-link {
+.kernel-nav-link {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -175,37 +175,37 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   transition: background 0.2s, color 0.2s;
 }
 
-.nexdesk-nav-link:hover {
+.kernel-nav-link:hover {
   color: #fff;
   background: rgba(255,255,255,0.08);
 }
 
-.nexdesk-nav-link.activo {
+.kernel-nav-link.activo {
   color: #fff;
   background: #0d6efd;
   font-weight: 600;
 }
 
-.nexdesk-nav-icon {
+.kernel-nav-icon {
   width: 24px;
   text-align: center;
   font-size: 19px;
 }
 
-.nexdesk-sidebar-footer {
+.kernel-sidebar-footer {
   padding: 22px;
   color: #c6d3e5;
   border-top: 1px solid rgba(255,255,255,0.08);
   font-size: 12px;
 }
 
-.nexdesk-sidebar-footer small {
+.kernel-sidebar-footer small {
   display: block;
   color: #8194b1;
   margin-top: 4px;
 }
 
-.nexdesk-online-dot {
+.kernel-online-dot {
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -214,12 +214,12 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   margin-right: 7px;
 }
 
-.nexdesk-main {
+.kernel-main {
   margin-left: 260px;
   min-height: 100vh;
 }
 
-.nexdesk-topbar {
+.kernel-topbar {
   min-height: 78px;
   background: #fff;
   border-bottom: 1px solid #e9edf4;
@@ -230,11 +230,11 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   gap: 16px;
 }
 
-.nexdesk-content {
+.kernel-content {
   padding: 30px;
 }
 
-.nexdesk-avatar {
+.kernel-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -245,24 +245,24 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   font-weight: 800;
 }
 
-.nexdesk-menu-toggle {
+.kernel-menu-toggle {
   display: none;
 }
 
-.nexdesk-overlay {
+.kernel-overlay {
   display: none;
 }
 
-.nexdesk-module-card {
+.kernel-module-card {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.nexdesk-module-card:hover {
+.kernel-module-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(15,23,42,0.1) !important;
 }
 
-.nexdesk-module-icon {
+.kernel-module-icon {
   width: 48px;
   height: 48px;
   border-radius: 13px;
@@ -274,23 +274,23 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 @media (max-width: 991px) {
-  .nexdesk-sidebar {
+  .kernel-sidebar {
     transform: translateX(-100%);
   }
 
-  .nexdesk-sidebar.abierto {
+  .kernel-sidebar.abierto {
     transform: translateX(0);
   }
 
-  .nexdesk-main {
+  .kernel-main {
     margin-left: 0;
   }
 
-  .nexdesk-menu-toggle {
+  .kernel-menu-toggle {
     display: inline-flex;
   }
 
-  .nexdesk-overlay {
+  .kernel-overlay {
     display: block;
     position: fixed;
     inset: 0;
@@ -299,26 +299,26 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
     z-index: 1035;
   }
 
-  .nexdesk-content {
+  .kernel-content {
     padding: 20px 12px;
   }
 }
 
 @media (max-width: 576px) {
-  .nexdesk-topbar {
+  .kernel-topbar {
     padding: 12px 15px;
   }
 
-  .nexdesk-topbar > div:first-child small,
-  .nexdesk-user-info {
+  .kernel-topbar > div:first-child small,
+  .kernel-user-info {
     display: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nexdesk-sidebar,
-  .nexdesk-module-card,
-  .nexdesk-nav-link {
+  .kernel-sidebar,
+  .kernel-module-card,
+  .kernel-nav-link {
     transition: none;
   }
 }
@@ -326,7 +326,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 
 /* LAB 26.4 - Flujo interactivo de tickets */
 
-.nexdesk-flujo-scroll {
+.kernel-flujo-scroll {
   width: 100%;
   overflow-x: auto;
   border: 1px solid #e9edf5;
@@ -335,7 +335,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   padding: 8px;
 }
 
-.nexdesk-flujo-svg {
+.kernel-flujo-svg {
   display: block;
   width: 100%;
   max-width: 850px;
@@ -344,21 +344,21 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   margin: 0 auto;
 }
 
-.nexdesk-flujo-nodo {
+.kernel-flujo-nodo {
   cursor: pointer;
   outline: none;
 }
 
-.nexdesk-flujo-nodo rect {
+.kernel-flujo-nodo rect {
   transition: fill 0.2s ease, stroke-width 0.2s ease;
 }
 
-.nexdesk-flujo-nodo:hover rect,
-.nexdesk-flujo-nodo:focus-visible rect {
+.kernel-flujo-nodo:hover rect,
+.kernel-flujo-nodo:focus-visible rect {
   stroke-width: 3;
 }
 
-.nexdesk-flujo-detalle {
+.kernel-flujo-detalle {
   border: 1px solid #e5eaf3;
   border-left: 5px solid #2563eb;
   border-radius: 12px;
@@ -367,7 +367,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nexdesk-flujo-nodo rect {
+  .kernel-flujo-nodo rect {
     transition: none;
   }
 }

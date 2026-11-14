@@ -175,7 +175,7 @@ export default function FormularioUsuario({
       </div>
 
       <div className="alert alert-info mt-4 mb-0 small">
-        NEXDESK generará automáticamente una contraseña
+        Kernel generará automáticamente una contraseña
         temporal. El nuevo usuario deberá cambiarla en
         su primer inicio de sesión.
       </div>

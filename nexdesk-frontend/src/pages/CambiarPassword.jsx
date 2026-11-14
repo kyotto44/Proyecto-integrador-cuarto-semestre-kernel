@@ -71,7 +71,7 @@ export default function CambiarPassword() {
               )}
             <h1 className="h4 fw-bold">Actualizar contraseña</h1>
             <p className="text-secondary">Cuenta: {usuario?.email}</p>
-            {usuario?.debeCambiarPassword && <div className="alert alert-warning">Debes cambiar tu contraseña antes de utilizar NEXDESK.</div>}
+            {usuario?.debeCambiarPassword && <div className="alert alert-warning">Debes cambiar tu contraseña antes de utilizar Kernel.</div>}
             {error && <div className="alert alert-danger" role="alert">{error}</div>}
             <form onSubmit={enviar}>
               <label className="form-label" htmlFor="actual">Contraseña actual</label>

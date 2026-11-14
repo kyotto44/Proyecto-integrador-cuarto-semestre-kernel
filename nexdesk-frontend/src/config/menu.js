@@ -25,6 +25,12 @@ export const MENU = [
     roles: ["superadmin", "admin"],
   },
   {
+    titulo: "Equipos",
+    ruta: "/equipos",
+    icono: "▭",
+    roles: ["superadmin", "admin", "usuario"],
+  },
+  {
     titulo: "Tickets",
     ruta: "/tickets",
     icono: "▣",

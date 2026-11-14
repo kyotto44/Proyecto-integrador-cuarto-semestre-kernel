@@ -3,7 +3,7 @@ import { supabaseAuth } from "../config/supabase.js";
 import { pool } from "../config/db.js";
 
 // ==========================================
-// MIDDLEWARE DE AUTENTICACIÓN - NEXDESK
+// MIDDLEWARE DE AUTENTICACIÓN - Kernel
 // ==========================================
 
 export async function autenticar(req, res, next) {
@@ -89,7 +89,7 @@ export async function autenticar(req, res, next) {
       !usuario.rol_activo
     ) {
       return res.status(403).json({
-        error: "Cuenta no habilitada en NEXDESK",
+        error: "Cuenta no habilitada en Kernel",
       });
     }
 

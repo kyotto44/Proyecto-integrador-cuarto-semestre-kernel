@@ -9,18 +9,18 @@ export default function MainLayout() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   return (
-    <div className="nexdesk-app">
+    <div className="kernel-app">
       <Sidebar
         abierto={menuAbierto}
         cerrar={() => setMenuAbierto(false)}
       />
 
-      <div className="nexdesk-main">
+      <div className="kernel-main">
         <NavbarPrincipal
           abrirMenu={() => setMenuAbierto(true)}
         />
 
-        <main className="nexdesk-content">
+        <main className="kernel-content">
           <Outlet />
         </main>
       </div>

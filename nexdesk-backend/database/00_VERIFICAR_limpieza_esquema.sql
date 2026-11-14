@@ -1,5 +1,5 @@
 -- ============================================================
--- NEXDESK - VERIFICACION DE LIMPIEZA
+-- Kernel - VERIFICACION DE LIMPIEZA
 -- Solo lectura
 -- ============================================================
 

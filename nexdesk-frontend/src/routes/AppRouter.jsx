@@ -15,6 +15,7 @@ import CambiarPassword from "../pages/CambiarPassword";
 import Usuarios from "../pages/Usuarios";
 import Tecnicos from "../pages/Tecnicos";
 import Categorias from "../pages/Categorias";
+import Equipos from "../pages/Equipos";
 import Tickets from "../pages/Tickets";
 import Seguimientos from "../pages/Seguimientos";
 
@@ -101,6 +102,15 @@ export default function AppRouter() {
               element={
                 <RutaPorRol roles={["superadmin", "admin"]}>
                   <Categorias />
+                </RutaPorRol>
+              }
+            />
+
+            <Route
+              path="/equipos"
+              element={
+                <RutaPorRol roles={["superadmin", "admin", "usuario"]}>
+                  <Equipos />
                 </RutaPorRol>
               }
             />

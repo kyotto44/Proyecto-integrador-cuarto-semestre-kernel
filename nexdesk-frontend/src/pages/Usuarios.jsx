@@ -399,7 +399,7 @@ export default function Usuarios() {
 
           <p className="text-secondary mb-0">
             Consulta, filtra y administra las cuentas
-            registradas en NEXDESK.
+            registradas en Kernel.
           </p>
         </div>
 

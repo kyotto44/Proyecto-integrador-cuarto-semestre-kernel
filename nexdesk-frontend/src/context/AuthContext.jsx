@@ -8,7 +8,7 @@ import {
   cambiarPassword as solicitarCambio,
 } from "../services/auth.service";
 
-const CLAVE_SESION = "nexdesk_access_token";
+const CLAVE_SESION = "kernel_access_token";
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(null);

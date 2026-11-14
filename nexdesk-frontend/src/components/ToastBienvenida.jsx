@@ -18,12 +18,12 @@ export default function ToastBienvenida({ nombre, onCerrar }) {
 
   return (
     <div
-      className={`nexdesk-toast ${visible ? "visible" : ""}`}
+      className={`kernel-toast ${visible ? "visible" : ""}`}
       role="status"
       aria-live="polite"
     >
       <div className="d-flex align-items-start gap-3">
-        <div className="nexdesk-toast-icon">
+        <div className="kernel-toast-icon">
           ✓
         </div>
 
@@ -32,7 +32,7 @@ export default function ToastBienvenida({ nombre, onCerrar }) {
             ¡Bienvenido/a, {nombre}!
           </div>
           <div className="text-secondary small mt-1">
-            Has iniciado sesión correctamente en NEXDESK.
+            Has iniciado sesión correctamente en Kernel.
           </div>
         </div>
 
@@ -44,7 +44,7 @@ export default function ToastBienvenida({ nombre, onCerrar }) {
         />
       </div>
 
-      <div className="nexdesk-toast-progress" />
+      <div className="kernel-toast-progress" />
     </div>
   );
 }

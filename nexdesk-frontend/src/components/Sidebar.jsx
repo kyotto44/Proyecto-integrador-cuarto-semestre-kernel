@@ -12,39 +12,39 @@ export default function Sidebar({ abierto, cerrar }) {
       {abierto && (
         <button
           type="button"
-          className="nexdesk-overlay"
+          className="kernel-overlay"
           onClick={cerrar}
           aria-label="Cerrar menú"
         />
       )}
 
       <aside
-        className={`nexdesk-sidebar ${abierto ? "abierto" : ""}`}
+        className={`kernel-sidebar ${abierto ? "abierto" : ""}`}
         aria-label="Navegación principal"
       >
-        <div className="nexdesk-sidebar-brand">
-          <span className="nexdesk-brand-icon">N</span>
+        <div className="kernel-sidebar-brand">
+          <span className="kernel-brand-icon">K</span>
           <div>
-            <strong>NEXDESK</strong>
+            <strong>Kernel</strong>
             <small>Sistema de soporte</small>
           </div>
         </div>
 
-        <div className="nexdesk-sidebar-label">
+        <div className="kernel-sidebar-label">
           MENÚ PRINCIPAL
         </div>
 
-        <nav className="nexdesk-sidebar-nav">
+        <nav className="kernel-sidebar-nav">
           {opciones.map((opcion) => (
             <NavLink
               key={opcion.ruta}
               to={opcion.ruta}
               onClick={cerrar}
               className={({ isActive }) =>
-                `nexdesk-nav-link ${isActive ? "activo" : ""}`
+                `kernel-nav-link ${isActive ? "activo" : ""}`
               }
             >
-              <span className="nexdesk-nav-icon">
+              <span className="kernel-nav-icon">
                 {opcion.icono}
               </span>
               <span>{opcion.titulo}</span>
@@ -52,8 +52,8 @@ export default function Sidebar({ abierto, cerrar }) {
           ))}
         </nav>
 
-        <div className="nexdesk-sidebar-footer">
-          <span className="nexdesk-online-dot" />
+        <div className="kernel-sidebar-footer">
+          <span className="kernel-online-dot" />
           Sistema de soporte
           <small>Helpdesk Organizacional para empresas</small>
         </div>

@@ -1,4 +1,5 @@
 
+import equiposRoutes from "./routes/equipos.routes.js";
 import express from "express";
 import helmet from "helmet";
 import cors from "cors";
@@ -55,7 +56,7 @@ app.use(express.json({ limit: "20kb" }));
 
 app.get("/api/estado", (req, res) => {
   return res.status(200).json({
-    servicio: "nexdesk",
+    servicio: "kernel",
     estado: "activo",
   });
 });
@@ -94,6 +95,15 @@ app.use(
   "/api/categorias",
   ...protegerModulo,
   categoriasRoutes,
+);
+// ==========================================
+// 8.1 EQUIPOS
+// ==========================================
+
+app.use(
+  "/api/equipos",
+  ...protegerModulo,
+  equiposRoutes,
 );
 
 // ==========================================
@@ -217,7 +227,7 @@ app.use((error, req, res, next) => {
   }
 
   // Registro técnico sin secretos
-  console.error("ERROR NEXDESK:", {
+  console.error("ERROR Kernel:", {
     message: error.message,
     code: error.code,
     constraint: error.constraint,

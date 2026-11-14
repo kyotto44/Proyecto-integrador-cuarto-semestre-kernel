@@ -3,7 +3,7 @@ import * as service
   from "../services/seguimientos.service.js";
 
 // ==========================================
-// NEXDESK - LAB NODE 26
+// Kernel - LAB NODE 26
 // CONTROLADOR DE SEGUIMIENTOS
 // ==========================================
 

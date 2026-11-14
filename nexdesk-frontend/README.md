@@ -1,4 +1,4 @@
-# NEXDESK — Guía de instalación desde cero (Frontend + Backend + Base de datos)
+# Kernel — Guía de instalación desde cero (Frontend + Backend + Base de datos)
 
 **Sistema Integral de Gestión de Soporte Técnico**  
 **Ruta técnica:** Node.js / Express (API REST) + PostgreSQL / Supabase Auth + React / Vite (SPA).  
@@ -16,7 +16,7 @@
 ### Estructura esperada
 
 ```text
-NEXDESK/
+Kernel/
 ├── BE/
 │   ├── src/
 │   ├── database/
@@ -81,7 +81,7 @@ npm install (Solo si seleccionó NO en el paso 4)
 
 Si el asistente de Vite cambia sus opciones, elegir siempre React + JavaScript y mantener los archivos de configuración creados por la plantilla.
 
-## 3. Instalar las dependencias que usa NEXDESK
+## 3. Instalar las dependencias que usa Kernel
 
 El `src/` actual importa **React Router**, **Bootstrap**, **jsPDF** y **jsPDF AutoTable**. Instalar:
 

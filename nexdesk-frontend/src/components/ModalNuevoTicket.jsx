@@ -1,5 +1,8 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useAuth } from "../hooks/useAuth";
+import { listarEquipos } from "../services/equipos.service";
 
 export default function ModalNuevoTicket({
   categorias = [],
@@ -8,12 +11,32 @@ export default function ModalNuevoTicket({
   onGuardar,
   onCerrar,
 }) {
+  const { token, usuario } = useAuth();
+  const esCliente = usuario?.rol === "usuario";
+
   const [formulario, setFormulario] = useState({
     titulo: "",
     descripcion: "",
     prioridad: "media",
     categoria_id: "",
+    equipo_id: "",
   });
+
+  // Equipos activos del cliente, para asociar la falla a uno
+  const [equipos, setEquipos] = useState([]);
+
+  useEffect(() => {
+    if (!esCliente || !token) return;
+    const controlador = new AbortController();
+
+    listarEquipos(token, controlador.signal)
+      .then((datos) => setEquipos(datos.filter((equipo) => equipo.activo)))
+      .catch(() => {
+        // Si falla, el ticket se puede registrar sin equipo
+      });
+
+    return () => controlador.abort();
+  }, [esCliente, token]);
 
   function cambiar(evento) {
     const { name, value } = evento.target;
@@ -34,6 +57,9 @@ export default function ModalNuevoTicket({
       descripcion: formulario.descripcion.trim(),
       prioridad: formulario.prioridad,
       categoria_id: Number(formulario.categoria_id),
+      equipo_id: formulario.equipo_id
+        ? Number(formulario.equipo_id)
+        : null,
     });
   }
 
@@ -120,6 +146,38 @@ export default function ModalNuevoTicket({
                     placeholder="Indica qué sucede, desde cuándo y qué acciones has intentado."
                   />
                 </div>
+
+                {esCliente && (
+                  <div className="mb-3">
+                    <label
+                      htmlFor="ticket-equipo"
+                      className="form-label"
+                    >
+                      Equipo con la falla
+                    </label>
+
+                    <select
+                      id="ticket-equipo"
+                      name="equipo_id"
+                      className="form-select"
+                      value={formulario.equipo_id}
+                      onChange={cambiar}
+                      disabled={guardando}
+                    >
+                      <option value="">
+                        {equipos.length
+                          ? "No aplica / ninguno"
+                          : "No tienes equipos registrados"}
+                      </option>
+
+                      {equipos.map((equipo) => (
+                        <option key={equipo.id} value={equipo.id}>
+                          {equipo.marca} {equipo.modelo} ({equipo.serial})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
 
                 <div className="row g-3">
                   <div className="col-md-7">

@@ -20,7 +20,7 @@ import { autorizarEscrituraSeguimiento }
 const router = Router();
 
 // ==========================================
-// NEXDESK - LAB NODE 26.8.3
+// Kernel - LAB NODE 26.8.3
 // RUTAS DE SEGUIMIENTOS
 // ==========================================
 

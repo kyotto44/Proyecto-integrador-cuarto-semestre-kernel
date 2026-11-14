@@ -1,4 +1,4 @@
-# NEXDESK — LAB NODE 25
+# Kernel — LAB NODE 25
 ## Guía actualizada de 40 pruebas esenciales en Postman
 
 > **Entorno:** exclusivamente laboratorio. La colección se ejecuta manualmente y en orden; no se ha probado contra un backend en ejecución.
@@ -26,7 +26,7 @@ No ejecutar las migraciones históricas `06`–`09` después del `01_schema.sql`
 ## 3. Importar colección y entorno
 
 1. Importar `NEXDESK_LAB25_40_PRUEBAS.postman_collection.json` y `NEXDESK_LAB25_40_PRUEBAS.postman_environment.json`.
-2. Seleccionar el entorno **NEXDESK LAB25 - 40 pruebas - Local (actualizado)**.
+2. Seleccionar el entorno **Kernel LAB25 - 40 pruebas - Local (actualizado)**.
 3. Completar los correos y contraseñas en el entorno local; no exportarlo con secretos.
 4. Verificar `baseUrl=http://localhost:3000`, `runId=A001` y correos de prueba nuevos (`emailNuevoUsuario`, `emailNuevoTecnico`, `emailIntentoSuperadmin`).
 5. Antes de cada nueva ejecución, cambiar `runId` **en las variables de colección** y los correos de altas para evitar duplicados. La colección contiene un valor inicial `A001` que prevalece sobre el entorno.

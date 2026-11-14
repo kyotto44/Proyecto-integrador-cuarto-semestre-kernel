@@ -2,7 +2,7 @@
 import * as service from "../services/tickets.service.js";
 
 // ==========================================
-// NEXDESK - LAB NODE 26
+// Kernel - LAB NODE 26
 // CONTROLADOR DE TICKETS
 // ==========================================
 
@@ -44,6 +44,8 @@ export async function crear(req, res, next) {
       descripcion: req.body.descripcion,
       prioridad: req.body.prioridad,
       categoria_id: req.body.categoria_id,
+      equipo_id: req.body.equipo_id ?? null,
+      rol: req.usuario.rol,
 
       // Identidad recuperada del JWT.
       usuario_id: req.usuario.id

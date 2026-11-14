@@ -2,7 +2,7 @@
 import { body, param } from "express-validator";
 
 // ==========================================
-// VALIDADORES DE USUARIOS - NEXDESK
+// VALIDADORES DE USUARIOS - Kernel
 // LAB NODE 26
 // ==========================================
 

@@ -18,7 +18,7 @@ import { validar }
   from "../middlewares/validar.js";
 
 // ==========================================
-// NEXDESK - LAB NODE 26
+// Kernel - LAB NODE 26
 // RUTAS DE TÉCNICOS
 // ==========================================
 

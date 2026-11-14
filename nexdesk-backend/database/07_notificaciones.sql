@@ -1,5 +1,5 @@
 -- ==================================================
--- NEXDESK - MODULO DE NOTIFICACIONES
+-- Kernel - MODULO DE NOTIFICACIONES
 -- ==================================================
 
 CREATE TABLE IF NOT EXISTS public.notificaciones (
