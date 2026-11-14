@@ -1,0 +1,28 @@
+# Dependencias y builds
+node_modules/
+dist/
+dist-ssr/
+
+# Variables de entorno (nunca subir secretos)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Documentos del proyecto (se entregan aparte)
+*.docx
+*.pdf
+~$*
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Archivo vacío generado por error en la raíz
+/package-lock.json
