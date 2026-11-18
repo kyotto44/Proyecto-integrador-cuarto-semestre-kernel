@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 import {
   useCallback,
   useEffect,
@@ -106,7 +106,7 @@ export default function CampanaNotificaciones() {
     <div className="position-relative">
       <button
         type="button"
-        className="btn btn-light position-relative"
+        className="btn btn-light position-relative kernel-boton-icono"
         aria-label={`Notificaciones: ${pendientes} sin leer`}
         aria-expanded={abierto}
         onClick={() => {
@@ -117,7 +117,7 @@ export default function CampanaNotificaciones() {
           }
         }}
       >
-        <span aria-hidden="true">🔔</span>
+        <Icono nombre="campana" />
 
         {pendientes > 0 && (
           <span

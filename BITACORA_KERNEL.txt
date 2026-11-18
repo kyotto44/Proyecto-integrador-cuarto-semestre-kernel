@@ -81,5 +81,41 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   Las contraseñas de las variables están solo en Render, no en
   el repo.
 
+18/11/2026
+- Se quitaron los emojis del frontend (el 👋 del saludo, la
+  campana 🔔, 📝, 📋 y 🔒 de Seguimientos, y los ✓ y ⚠ de los
+  avisos). También los símbolos de texto que hacían de iconos
+  en el menú lateral (▦ ♙ ⚙ ▤ ▭ ▣ ◷), el botón ☰ y la flechita
+  del menú del usuario.
+  Ahora son iconos SVG, todos del mismo estilo de línea. Archivo
+  nuevo: components/Icono.jsx (ahí están todos los iconos). En
+  menu.js cada opción dice el nombre del icono ("usuarios",
+  "tickets", etc.). Se cambiaron Sidebar, NavbarPrincipal,
+  CampanaNotificaciones, ToastBienvenida, CredencialTemporal,
+  ModalEstadoUsuario, HistorialSeguimientos, Dashboard,
+  Seguimientos e index.css. No se agregó ninguna librería.
+  Los iconos de check, advertencia y "no hay nada" ahora van en
+  un círculo de color suave.
+- Ojo: las flechas de texto (→ en "Siguiente etapa" y "Abrir
+  módulo", ↓ en "Exportar CSV/PDF") se dejaron porque no son
+  emojis.
+
+- Se quitaron las rayas gruesas de color del borde izquierdo:
+  - El aviso de bienvenida ya no tiene la raya verde; queda con
+    sombra suave (el check y la barra verde ya dicen que salió
+    bien).
+  - El panel de la etapa en "¿Cómo funciona Kernel?" ya no tiene
+    la raya de color; ahora el color de la etapa sale en un
+    puntico al lado de "ETAPA X DE 6" y cambia al escoger otra
+    etapa (FlujoTickets.jsx e index.css).
+  Funciona: npm run lint y npm run build sin errores. Se revisó
+  en el navegador con una sesión simulada (sin entrar con una
+  cuenta real): menú, barra de arriba, tarjetas del panel,
+  Seguimientos, el aviso de bienvenida y el diagrama.
+
 PENDIENTE
-- Nada por ahora.
+- Subir a GitHub los cambios del 18/11 (todavía no tienen
+  commit ni están en la página publicada).
+- Probar los cambios del 18/11 entrando con Sofía de verdad.
+- Cambiar la animación de "width" en index.css por una con
+  transform (animar el ancho hace trabajar de más al navegador).

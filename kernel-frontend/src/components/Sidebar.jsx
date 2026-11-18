@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { menuPorRol } from "../config/menu";
@@ -45,7 +45,7 @@ export default function Sidebar({ abierto, cerrar }) {
               }
             >
               <span className="kernel-nav-icon">
-                {opcion.icono}
+                <Icono nombre={opcion.icono} />
               </span>
               <span>{opcion.titulo}</span>
             </NavLink>

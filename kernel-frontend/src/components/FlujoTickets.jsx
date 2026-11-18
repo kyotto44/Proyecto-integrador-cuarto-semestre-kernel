@@ -266,12 +266,12 @@ export default function FlujoTickets() {
 
                 <div
                     className="kernel-flujo-detalle mt-3"
-                    style={{ borderLeftColor: etapa.color }}
+                    style={{ "--etapa-color": etapa.color }}
                     aria-live="polite"
                 >
                     <div className="d-flex justify-content-between align-items-start gap-3 flex-wrap">
                         <div>
-                            <span className="text-secondary small">
+                            <span className="kernel-flujo-etapa text-secondary small">
                                 ETAPA {etapa.id} DE {etapas.length}
                             </span>
 

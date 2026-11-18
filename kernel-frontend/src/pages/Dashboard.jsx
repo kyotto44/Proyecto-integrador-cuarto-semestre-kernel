@@ -1,4 +1,4 @@
-
+import Icono from "../components/Icono";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -68,7 +68,7 @@ export default function Dashboard() {
         </div>
 
         <h1 className="h3 fw-bold mb-2">
-          ¡Hola, {nombre}! 👋
+          ¡Hola, {nombre}!
         </h1>
 
         <p className="text-secondary mb-0">
@@ -140,7 +140,7 @@ export default function Dashboard() {
               <div className="card kernel-module-card h-100 border-0 shadow-sm rounded-4">
                 <div className="card-body p-4">
                   <div className="kernel-module-icon mb-3">
-                    {modulo.icono}
+                    <Icono nombre={modulo.icono} tamano={24} />
                   </div>
 
                   <h3 className="h6 fw-bold text-dark">
