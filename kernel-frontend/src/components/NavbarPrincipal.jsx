@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import CampanaNotificaciones from "./CampanaNotificaciones";
@@ -51,7 +51,7 @@ export default function NavbarPrincipal({ abrirMenu }) {
           onClick={abrirMenu}
           aria-label="Abrir menú"
         >
-          ☰
+          <Icono nombre="menu" />
         </button>
 
         <div>
@@ -97,7 +97,7 @@ export default function NavbarPrincipal({ abrirMenu }) {
 
             </span>
 
-            <span aria-hidden="true">⌄</span>
+            <Icono nombre="flecha-abajo" tamano={16} className="text-secondary" />
 
           </button>
 

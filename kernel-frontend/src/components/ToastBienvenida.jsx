@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 import { useEffect, useState } from "react";
 
 export default function ToastBienvenida({ nombre, onCerrar }) {
@@ -24,7 +24,7 @@ export default function ToastBienvenida({ nombre, onCerrar }) {
     >
       <div className="d-flex align-items-start gap-3">
         <div className="kernel-toast-icon">
-          ✓
+          <Icono nombre="check" tamano={20} grosor={2.25} />
         </div>
 
         <div className="flex-grow-1">

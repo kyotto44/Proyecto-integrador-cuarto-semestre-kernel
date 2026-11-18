@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 import { useState } from "react";
 
 export default function CredencialTemporal({
@@ -24,7 +24,9 @@ export default function CredencialTemporal({
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content border-0 rounded-4 shadow">
             <div className="modal-body p-4">
-              <div className="text-success fs-1 mb-2">✓</div>
+              <div className="kernel-icono-estado kernel-icono-estado--exito mb-3">
+                <Icono nombre="check" tamano={24} grosor={2.25} />
+              </div>
 
               <h2 id="titulo-credencial" className="h5 fw-bold">
                 {resultado?.mensaje ||

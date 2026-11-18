@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 function formatearFecha(valor) {
   if (!valor) return "Fecha no disponible";
 
@@ -55,8 +55,8 @@ export default function HistorialSeguimientos({
   if (registrosOrdenados.length === 0) {
     return (
       <div className="text-center py-5 text-secondary">
-        <div className="fs-2 mb-2" aria-hidden="true">
-          📝
+        <div className="kernel-icono-vacio mb-3">
+          <Icono nombre="nota" tamano={24} />
         </div>
 
         <p className="fw-semibold mb-1">

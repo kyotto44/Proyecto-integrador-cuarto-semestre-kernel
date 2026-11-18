@@ -81,5 +81,128 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   Las contraseñas de las variables están solo en Render, no en
   el repo.
 
+18/11/2026
+- Se quitaron los emojis del frontend (el 👋 del saludo, la
+  campana 🔔, 📝, 📋 y 🔒 de Seguimientos, y los ✓ y ⚠ de los
+  avisos). También los símbolos de texto que hacían de iconos
+  en el menú lateral (▦ ♙ ⚙ ▤ ▭ ▣ ◷), el botón ☰ y la flechita
+  del menú del usuario.
+  Ahora son iconos SVG, todos del mismo estilo de línea. Archivo
+  nuevo: components/Icono.jsx (ahí están todos los iconos). En
+  menu.js cada opción dice el nombre del icono ("usuarios",
+  "tickets", etc.). Se cambiaron Sidebar, NavbarPrincipal,
+  CampanaNotificaciones, ToastBienvenida, CredencialTemporal,
+  ModalEstadoUsuario, HistorialSeguimientos, Dashboard,
+  Seguimientos e index.css. No se agregó ninguna librería.
+  Los iconos de check, advertencia y "no hay nada" ahora van en
+  un círculo de color suave.
+- Ojo: las flechas de texto (→ en "Siguiente etapa" y "Abrir
+  módulo", ↓ en "Exportar CSV/PDF") se dejaron porque no son
+  emojis.
+
+- Se quitaron las rayas gruesas de color del borde izquierdo:
+  - El aviso de bienvenida ya no tiene la raya verde; queda con
+    sombra suave (el check y la barra verde ya dicen que salió
+    bien).
+  - El panel de la etapa en "¿Cómo funciona Kernel?" ya no tiene
+    la raya de color; ahora el color de la etapa sale en un
+    puntico al lado de "ETAPA X DE 6" y cambia al escoger otra
+    etapa (FlujoTickets.jsx e index.css).
+  Funciona: npm run lint y npm run build sin errores. Se revisó
+  en el navegador con una sesión simulada (sin entrar con una
+  cuenta real): menú, barra de arriba, tarjetas del panel,
+  Seguimientos, el aviso de bienvenida y el diagrama.
+
+- Se pulió el diseño del frontend sin cambiar la estructura de
+  las pantallas (casi todo en index.css):
+  - Las etiquetas de estado, prioridad y rol (badges) ahora son
+    de color suave con letra oscura; antes eran bloques de color
+    fuerte que competían con el contenido de las tablas.
+  - El botón amarillo ("Desactivar", "Restablecer clave", "No
+    disponible") casi no se leía: la letra amarilla sobre blanco
+    daba 1.6 de contraste. Ahora es ámbar oscuro (5.9, pasa la
+    norma WCAG que pide 4.5).
+  - Los encabezados de las tablas quedaron más pequeños y grises
+    para que resalten los datos.
+  - Los números de tablas y métricas quedan alineados.
+  - Los botones se hunden un poquito al presionarlos.
+  - El menú lateral en celular y el aviso de bienvenida abren
+    más rápido y suave. Si el sistema pide menos movimiento, no
+    se animan.
+  - En el menú lateral se ve el foco al navegar con Tab.
+  - En Tickets la prioridad sale con mayúscula ("Alta").
+  - index.html ahora dice lang="es" (antes decía inglés).
+  Funciona: lint y build sin errores; se revisó en escritorio y
+  celular con datos de prueba (sin cuenta real). No se agregó
+  ninguna librería.
+- Ojo: el aviso del detector sobre una animación de "width" era
+  falso: es el grosor del borde de las cajas del diagrama
+  (stroke-width), no mueve nada. Se quitó de pendientes.
+
+- Se cambió la paleta del frontend de azul a verde (verde
+  bosque). Los colores están como variables al principio de
+  index.css (--kernel-verde-50 a --kernel-verde-950) y Bootstrap
+  usa el verde como color primario, así que todos los botones,
+  enlaces, focos de formularios, la lista de Seguimientos y el
+  menú del usuario quedaron verdes sin tocar cada pantalla.
+  - Menú lateral verde muy oscuro con letra verde clara; la
+    opción activa, el logo K y el icono de la pestaña (favicon,
+    antes era el logo morado de Vite) en verde.
+  - Fondo de la página y bordes con un toque verde muy suave.
+  - Estados de ticket con el mismo color en etiquetas, gráficas
+    y diagrama: Abierto azul cielo, Asignado violeta, En proceso
+    ámbar, Resuelto verde, Cerrado gris y Reabierto rojo. Antes
+    Abierto era del color de la marca; si se dejaba así quedaba
+    igual de verde que Resuelto. Antes Reabierto era rojo en la
+    tabla y morado en la gráfica; ya coinciden.
+  - Las etiquetas de rol (superadmin, admin...) ahora tienen
+    borde verde y fondo casi blanco para no confundirse con los
+    estados. "Disponible" en Técnicos pasó a verde de éxito.
+  - El PDF exportado tiene el encabezado y la tabla en verde
+    oscuro.
+  Funciona: lint y build sin errores. Contrastes medidos: botón
+  verde con letra blanca 5.0, texto del menú lateral 10.1,
+  etiquetas de estado entre 5.7 y 6.8 (la norma pide 4.5). Los
+  colores de las gráficas se revisaron con el validador de
+  daltonismo; cada barra tiene nombre y número, así que no
+  depende solo del color. Se revisaron Panel, Tickets y
+  Usuarios con datos de prueba (sin cuenta real).
+
+- Se le dio identidad propia al frontend para que no se vea
+  igual a la plantilla que todos recibimos (sin agregar
+  pantallas ni funciones nuevas):
+  - Tipografía Geist en todo el sitio (y Geist Mono para
+    seriales y códigos) en lugar de la letra del sistema. Se
+    carga desde Google Fonts (index.html).
+  - Inicio de sesión dividido: a la izquierda un panel verde
+    oscuro con la K, "Kernel" en grande y el nombre del
+    sistema; a la derecha el formulario. En celular solo se ve
+    el formulario con la K arriba. La lógica no cambió.
+  - Tarjetas planas con borde fino en lugar de la sombra
+    flotante de Bootstrap; esquinas iguales en todo el sitio.
+  - Títulos de página y números de las métricas más grandes y
+    con las letras un poco más juntas.
+  - Menú lateral: la opción activa ya no es un bloque verde
+    sólido sino un verde translúcido con el icono verde claro.
+  - Al pasar el mouse por una fila de tabla se pinta de verde
+    muy suave.
+  - En el panel, "CUENTA AUTENTICADA" pasó a "Tu cuenta".
+  Funciona: lint y build sin errores; se revisó el login en
+  escritorio y celular, el panel y Tickets con datos de prueba.
+- Ojo: la fuente se carga desde Google; si no hay internet se
+  ve la letra del sistema (todo sigue funcionando). Para no
+  depender de Google se puede instalar con:
+  npm install @fontsource-variable/geist @fontsource-variable/geist-mono
+
+- Todo lo del 18/11 se subió a GitHub en la rama
+  frontend-iconos-svg y se unió a main con el pull request #1.
+  Al entrar a main, Vercel volvió a publicar la página sola.
+
 PENDIENTE
-- Nada por ahora.
+- Probar los cambios del 18/11 entrando con Sofía en la página
+  publicada (https://kernellab-hazel.vercel.app).
+- Sugerencias para después (no se hicieron para no cambiar de
+  más): en celular las tablas se desplazan de lado y las
+  tarjetas de métricas ocupan mucho alto; se podrían mostrar
+  como tarjetas. src/App.css no se usa (es de la plantilla de
+  Vite) y se puede borrar.

@@ -52,8 +52,8 @@ function nombreEstado(estado) {
 
 function claseEstado(estado) {
     const clases = {
-        abierto: "text-bg-primary",
-        asignado: "text-bg-info",
+        abierto: "text-bg-info",
+        asignado: "text-bg-violeta",
         en_proceso: "text-bg-warning",
         resuelto: "text-bg-success",
         cerrado: "text-bg-secondary",
@@ -71,6 +71,12 @@ function clasePrioridad(prioridad) {
     };
 
     return clases[prioridad] || "text-bg-secondary";
+}
+
+function nombrePrioridad(prioridad) {
+    if (!prioridad) return "Sin prioridad";
+
+    return prioridad.charAt(0).toUpperCase() + prioridad.slice(1);
 }
 
 export default function Tickets() {
@@ -548,7 +554,7 @@ export default function Tickets() {
                                                         ticket.prioridad
                                                     )}`}
                                                 >
-                                                    {ticket.prioridad}
+                                                    {nombrePrioridad(ticket.prioridad)}
                                                 </span>
                                             </td>
 
@@ -751,7 +757,7 @@ export default function Tickets() {
                                     <div className="row g-3">
                                         <div className="col-md-6">
                                             <strong>Prioridad:</strong>{" "}
-                                            {ticketDetalle.prioridad}
+                                            {nombrePrioridad(ticketDetalle.prioridad)}
                                         </div>
 
                                         <div className="col-md-6">

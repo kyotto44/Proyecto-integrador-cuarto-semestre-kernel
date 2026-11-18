@@ -1,4 +1,4 @@
-
+import Icono from "../components/Icono";
 import {
     useCallback,
     useEffect,
@@ -31,6 +31,19 @@ function formatearEstado(estado) {
     };
 
     return nombres[estado] || estado;
+}
+
+function claseEstado(estado) {
+    const clases = {
+        abierto: "text-bg-info",
+        asignado: "text-bg-violeta",
+        en_proceso: "text-bg-warning",
+        resuelto: "text-bg-success",
+        cerrado: "text-bg-secondary",
+        reabierto: "text-bg-danger",
+    };
+
+    return clases[estado] || "text-bg-secondary";
 }
 
 
@@ -404,7 +417,9 @@ export default function Seguimientos() {
                     {!ticketSeleccionado ? (
                         <div className="card border-0 shadow-sm rounded-4">
                             <div className="card-body text-center py-5">
-                                <div className="fs-1 mb-3">📋</div>
+                                <div className="kernel-icono-vacio mb-3">
+                                    <Icono nombre="portapapeles" tamano={24} />
+                                </div>
 
                                 <h2 className="h5 fw-bold">
                                     Selecciona un ticket
@@ -433,7 +448,7 @@ export default function Seguimientos() {
                                             </h2>
                                         </div>
 
-                                        <span className="badge text-bg-primary">
+                                        <span className={`badge ${claseEstado(ticketSeleccionado.estado)}`}>
                                             {formatearEstado(
                                                 ticketSeleccionado.estado
                                             )}
@@ -456,7 +471,7 @@ export default function Seguimientos() {
                                     {ticketCerrado ? (
                                         <div className="py-2">
                                             <div className="d-flex align-items-center gap-2 mb-3">
-                                                <span className="fs-4" aria-hidden="true">🔒</span>
+                                                <Icono nombre="candado" tamano={22} className="text-secondary" />
                                                 <h2 className="h5 fw-bold mb-0">
                                                     Ticket cerrado — Solo consulta
                                                 </h2>

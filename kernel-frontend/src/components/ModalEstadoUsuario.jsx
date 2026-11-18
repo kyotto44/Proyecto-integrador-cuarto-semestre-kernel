@@ -1,4 +1,4 @@
-
+import Icono from "./Icono";
 export default function ModalEstadoUsuario({
   usuario,
   guardando,
@@ -26,11 +26,17 @@ export default function ModalEstadoUsuario({
           <div className="modal-content border-0 rounded-4 shadow">
             <div className="modal-body p-4">
               <div
-                className={`fs-1 mb-2 ${
-                  desactivar ? "text-warning" : "text-success"
+                className={`kernel-icono-estado mb-3 ${
+                  desactivar
+                    ? "kernel-icono-estado--aviso"
+                    : "kernel-icono-estado--exito"
                 }`}
               >
-                {desactivar ? "⚠" : "✓"}
+                <Icono
+                  nombre={desactivar ? "alerta" : "check"}
+                  tamano={24}
+                  grosor={2}
+                />
               </div>
 
               <h2

@@ -473,7 +473,7 @@ export default function Tecnicos() {
                         <span
                           className={`badge ${
                             tecnico.disponible
-                              ? "text-bg-primary"
+                              ? "text-bg-success"
                               : "text-bg-secondary"
                           }`}
                         >
