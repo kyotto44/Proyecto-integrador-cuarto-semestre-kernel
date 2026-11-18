@@ -2,6 +2,7 @@ import Icono from "./Icono";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { menuPorRol } from "../config/menu";
+import LogoKernel from "./LogoKernel";
 
 export default function Sidebar({ abierto, cerrar }) {
   const { usuario } = useAuth();
@@ -23,7 +24,9 @@ export default function Sidebar({ abierto, cerrar }) {
         aria-label="Navegación principal"
       >
         <div className="kernel-sidebar-brand">
-          <span className="kernel-brand-icon">K</span>
+          <span className="kernel-brand-icon">
+            <LogoKernel alto={34} />
+          </span>
           <div>
             <strong>Kernel</strong>
             <small>Sistema de soporte</small>

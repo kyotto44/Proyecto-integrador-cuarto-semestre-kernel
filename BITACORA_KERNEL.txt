@@ -198,6 +198,21 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   frontend-iconos-svg y se unió a main con el pull request #1.
   Al entrar a main, Vercel volvió a publicar la página sola.
 
+- Logo nuevo de Kernel: una K cuyos trazos salen de un núcleo
+  (un círculo con un anillo de aire alrededor). La imagen la
+  hizo una IA y se redibujó como SVG con las mismas medidas
+  para que se vea nítido en cualquier tamaño.
+  - Archivo nuevo: components/LogoKernel.jsx (toma el color del
+    texto, sirve en fondo claro y oscuro).
+  - Se puso en: el icono de la pestaña (favicon.svg; en modo
+    oscuro sale en verde claro), el menú lateral, el login
+    (panel verde y versión de celular) y el encabezado del PDF
+    del reporte (dibujado en blanco con jsPDF).
+  - Se quitó la K de texto en cuadro verde que había antes.
+  Funciona: lint y build sin errores; se revisó login en
+  escritorio y celular, menú lateral, favicon y un PDF de
+  prueba con datos de ejemplo.
+
 PENDIENTE
 - Probar los cambios del 18/11 entrando con Sofía en la página
   publicada (https://kernellab-hazel.vercel.app).

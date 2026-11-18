@@ -228,13 +228,32 @@ export default function AnaliticaTickets({
 
     pdf.setFillColor(...verde);
     pdf.rect(0, 0, ancho, 28, "F");
+
+    // Logo de Kernel dibujado en blanco (mismas medidas que LogoKernel.jsx)
+    const escala = 16 / 999;
+    const lx = (v) => margen + (v - 343) * escala;
+    const ly = (v) => 6 + (v - 131) * escala;
+    pdf.setFillColor(255, 255, 255);
+    pdf.roundedRect(lx(343), ly(131), 192 * escala, 999 * escala, 96 * escala, 96 * escala, "F");
+    pdf.setDrawColor(255, 255, 255);
+    pdf.setLineWidth(169 * escala);
+    pdf.setLineCap("round");
+    pdf.line(lx(961), ly(261.5), lx(581), ly(641.5));
+    pdf.line(lx(581), ly(641.5), lx(961), ly(1021.5));
+    pdf.setFillColor(...verde);
+    pdf.circle(lx(445), ly(642), 140 * escala, "F");
+    pdf.setFillColor(255, 255, 255);
+    pdf.circle(lx(445), ly(642), 102 * escala, "F");
+    pdf.setLineCap("butt");
+
+    const textoX = margen + 16;
     pdf.setTextColor(255, 255, 255);
     pdf.setFont("helvetica", "bold");
     pdf.setFontSize(19);
-    pdf.text("Kernel", margen, 13);
+    pdf.text("Kernel", textoX, 13);
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(9);
-    pdf.text("Sistema Integral de Gestion de Soporte Tecnico", margen, 20);
+    pdf.text("Sistema Integral de Gestion de Soporte Tecnico", textoX, 20);
     pdf.text("REPORTE DE GESTION", ancho - margen, 15, { align: "right" });
 
     pdf.setTextColor(...gris);
