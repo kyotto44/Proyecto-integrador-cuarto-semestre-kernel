@@ -65,109 +65,116 @@ export default function Login() {
 
   // 4. Interfaz de inicio de sesión
   return (
-    <div className="min-vh-100 d-flex align-items-center bg-light">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-7 col-lg-5 col-xl-4">
+    <div className="kernel-login">
 
-            <div className="card border-0 shadow-lg rounded-4">
-              <div className="card-body p-4 p-md-5">
+      {/* Panel de marca (solo en pantallas grandes) */}
+      <aside className="kernel-login-marca">
+        <div className="kernel-login-logo" aria-hidden="true">
+          K
+        </div>
 
-                {/* Identidad visual */}
-                <div className="text-center mb-4">
-                  <div className="kernel-logo mx-auto mb-3">
-                    K
-                  </div>
+        <div>
+          <p className="kernel-login-nombre">Kernel</p>
+          <p className="kernel-login-lema">
+            Sistema Integral de Gestión de Soporte Técnico
+          </p>
+        </div>
+      </aside>
 
-                  <h1 className="h3 fw-bold text-primary">
-                    Kernel
-                  </h1>
+      {/* Formulario */}
+      <main className="kernel-login-panel">
+        <div className="kernel-login-caja">
 
-                  <p className="text-secondary small">
-                    Sistema Integral de Gestión de Soporte Técnico
-                  </p>
-                </div>
+          <div className="kernel-login-marca-movil">
+            <div className="kernel-logo" aria-hidden="true">
+              K
+            </div>
+            <span>Kernel</span>
+          </div>
 
-                {/* Mensajes de error */}
-                {error && (
-                  <div
-                    className="alert alert-danger"
-                    role="alert"
-                  >
-                    {error}
-                  </div>
-                )}
+          <h1 className="kernel-login-titulo">
+            Iniciar sesión
+          </h1>
 
-                {/* Formulario */}
-                <form onSubmit={manejarLogin}>
+          <p className="text-secondary mb-4">
+            Ingresa con tu correo y tu contraseña.
+          </p>
 
-                  <div className="mb-3">
-                    <label
-                      htmlFor="email"
-                      className="form-label"
-                    >
-                      Correo electrónico
-                    </label>
+          {/* Mensajes de error */}
+          {error && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+            >
+              {error}
+            </div>
+          )}
 
-                    <input
-                      id="email"
-                      type="email"
-                      className="form-control"
-                      value={email}
-                      onChange={(e) =>
-                        setEmail(e.target.value)
-                      }
-                      autoComplete="username"
-                      required
-                    />
-                  </div>
+          <form onSubmit={manejarLogin}>
 
-                  <div className="mb-4">
-                    <label
-                      htmlFor="password"
-                      className="form-label"
-                    >
-                      Contraseña
-                    </label>
+            <div className="mb-3">
+              <label
+                htmlFor="email"
+                className="form-label"
+              >
+                Correo electrónico
+              </label>
 
-                    <input
-                      id="password"
-                      type="password"
-                      className="form-control"
-                      value={password}
-                      onChange={(e) =>
-                        setPassword(e.target.value)
-                      }
-                      autoComplete="current-password"
-                      required
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-primary w-100 py-2"
-                    disabled={cargando}
-                  >
-                    {cargando
-                      ? "Validando..."
-                      : "Iniciar sesión"}
-                  </button>
-
-                </form>
-
-                {/* Verificación del backend */}
-                <EstadoBackend />
-
-                <p className="text-center text-secondary small mt-4 mb-0">
-                  Acceso autorizado a Kernel
-                </p>
-
-              </div>
+              <input
+                id="email"
+                type="email"
+                className="form-control"
+                value={email}
+                onChange={(e) =>
+                  setEmail(e.target.value)
+                }
+                autoComplete="username"
+                required
+              />
             </div>
 
-          </div>
+            <div className="mb-4">
+              <label
+                htmlFor="password"
+                className="form-label"
+              >
+                Contraseña
+              </label>
+
+              <input
+                id="password"
+                type="password"
+                className="form-control"
+                value={password}
+                onChange={(e) =>
+                  setPassword(e.target.value)
+                }
+                autoComplete="current-password"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-primary w-100 py-2"
+              disabled={cargando}
+            >
+              {cargando
+                ? "Validando..."
+                : "Iniciar sesión"}
+            </button>
+
+          </form>
+
+          {/* Verificación del backend */}
+          <EstadoBackend />
+
+          <p className="text-secondary small mt-4 mb-0">
+            Acceso autorizado a Kernel
+          </p>
+
         </div>
-      </div>
+      </main>
     </div>
   );
 }

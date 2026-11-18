@@ -5,8 +5,8 @@ import { historialEquipo } from "../services/equipos.service";
 
 // Mismos nombres y colores de estado que la pantalla de Tickets
 const ESTADOS = {
-  abierto: ["Abierto", "text-bg-primary"],
-  asignado: ["Asignado", "text-bg-info"],
+  abierto: ["Abierto", "text-bg-info"],
+  asignado: ["Asignado", "text-bg-violeta"],
   en_proceso: ["En proceso", "text-bg-warning"],
   resuelto: ["Resuelto", "text-bg-success"],
   cerrado: ["Cerrado", "text-bg-secondary"],

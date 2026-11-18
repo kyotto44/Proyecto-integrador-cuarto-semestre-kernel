@@ -11,7 +11,7 @@ const etapas = [
     descripcion:
       "El usuario registra una solicitud de soporte describiendo el incidente o requerimiento.",
     resultado: "Se crea un ticket con estado abierto.",
-    color: "#2563eb",
+    color: "#0e89c4",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const etapas = [
     descripcion:
       "Un responsable autorizado asigna el ticket a un técnico disponible.",
     resultado: "El ticket queda asociado a un técnico.",
-    color: "#7c3aed",
+    color: "#7137b6",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const etapas = [
     descripcion:
       "El técnico analiza la solicitud y realiza las acciones necesarias para resolverla.",
     resultado: "El ticket puede pasar a en_progreso.",
-    color: "#0891b2",
+    color: "#0f766e",
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ const etapas = [
     descripcion:
       "Cuando se completa la atención, se actualiza el estado del ticket conforme a las reglas del sistema.",
     resultado: "El ticket pasa al estado cerrado.",
-    color: "#16a34a",
+    color: "#0e9254",
   },
 ];
 
@@ -311,7 +311,7 @@ export default function FlujoTickets() {
                 <div className="mt-3 small text-secondary">
                     <strong>Estados del ticket:</strong>{" "}
 
-                    <span className="badge text-bg-primary">
+                    <span className="badge text-bg-info">
                         abierto
                     </span>
 

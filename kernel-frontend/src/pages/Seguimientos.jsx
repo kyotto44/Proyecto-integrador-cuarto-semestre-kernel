@@ -33,6 +33,19 @@ function formatearEstado(estado) {
     return nombres[estado] || estado;
 }
 
+function claseEstado(estado) {
+    const clases = {
+        abierto: "text-bg-info",
+        asignado: "text-bg-violeta",
+        en_proceso: "text-bg-warning",
+        resuelto: "text-bg-success",
+        cerrado: "text-bg-secondary",
+        reabierto: "text-bg-danger",
+    };
+
+    return clases[estado] || "text-bg-secondary";
+}
+
 
 
 export default function Seguimientos() {
@@ -435,7 +448,7 @@ export default function Seguimientos() {
                                             </h2>
                                         </div>
 
-                                        <span className="badge text-bg-primary">
+                                        <span className={`badge ${claseEstado(ticketSeleccionado.estado)}`}>
                                             {formatearEstado(
                                                 ticketSeleccionado.estado
                                             )}

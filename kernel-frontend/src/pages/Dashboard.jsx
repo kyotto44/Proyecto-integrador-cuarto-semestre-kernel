@@ -81,7 +81,7 @@ export default function Dashboard() {
           <div className="row align-items-center g-3">
             <div className="col-md-8">
               <div className="text-secondary small mb-2">
-                CUENTA AUTENTICADA
+                Tu cuenta
               </div>
 
               <h2 className="h5 fw-bold">

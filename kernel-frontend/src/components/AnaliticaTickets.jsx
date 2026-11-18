@@ -8,12 +8,13 @@ import autoTable from "jspdf-autotable";
 // ==========================================
 
 const ESTADOS = [
-  ["abierto", "Abiertos", "#3b82f6"],
-  ["asignado", "Asignados", "#06b6d4"],
-  ["en_proceso", "En proceso", "#f59e0b"],
-  ["resuelto", "Resueltos", "#10b981"],
-  ["cerrado", "Cerrados", "#64748b"],
-  ["reabierto", "Reabiertos", "#a855f7"],
+  // Mismos colores que las etiquetas de estado (validados para daltonismo)
+  ["abierto", "Abiertos", "#0e89c4"],
+  ["asignado", "Asignados", "#7137b6"],
+  ["en_proceso", "En proceso", "#e1961b"],
+  ["resuelto", "Resueltos", "#0e9254"],
+  ["cerrado", "Cerrados", "#4c5550"],
+  ["reabierto", "Reabiertos", "#d73431"],
 ];
 
 // ==========================================
@@ -117,21 +118,21 @@ export default function AnaliticaTickets({
     const prioridades = [
       {
         nombre: "Alta",
-        color: "#ef4444",
+        color: "#d73431",
         cantidad: tickets.filter(
           (ticket) => ticket.prioridad === "alta"
         ).length,
       },
       {
         nombre: "Media",
-        color: "#f59e0b",
+        color: "#e1961b",
         cantidad: tickets.filter(
           (ticket) => ticket.prioridad === "media"
         ).length,
       },
       {
         nombre: "Baja",
-        color: "#10b981",
+        color: "#0e9254",
         cantidad: tickets.filter(
           (ticket) => ticket.prioridad === "baja"
         ).length,
@@ -221,11 +222,11 @@ export default function AnaliticaTickets({
     const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
     const ancho = pdf.internal.pageSize.getWidth();
     const fechaGeneracion = formatearFecha(new Date());
-    const azul = [22, 54, 93];
+    const verde = [11, 58, 37];
     const gris = [82, 95, 111];
     const margen = 14;
 
-    pdf.setFillColor(...azul);
+    pdf.setFillColor(...verde);
     pdf.rect(0, 0, ancho, 28, "F");
     pdf.setTextColor(255, 255, 255);
     pdf.setFont("helvetica", "bold");
@@ -257,14 +258,14 @@ export default function AnaliticaTickets({
       pdf.setTextColor(...gris);
       pdf.setFontSize(8);
       pdf.text(etiqueta, x + 4, 54);
-      pdf.setTextColor(...azul);
+      pdf.setTextColor(...verde);
       pdf.setFont("helvetica", "bold");
       pdf.setFontSize(15);
       pdf.text(String(valor), x + 4, 64);
       pdf.setFont("helvetica", "normal");
     });
 
-    pdf.setTextColor(...azul);
+    pdf.setTextColor(...verde);
     pdf.setFont("helvetica", "bold");
     pdf.setFontSize(10);
     pdf.text("Por estado", margen, 79);
@@ -280,7 +281,7 @@ export default function AnaliticaTickets({
     });
 
     pdf.setFont("helvetica", "bold");
-    pdf.setTextColor(...azul);
+    pdf.setTextColor(...verde);
     pdf.setFontSize(10);
     pdf.text("Detalle de tickets", margen, 123);
 
@@ -307,7 +308,7 @@ export default function AnaliticaTickets({
       margin: { left: margen, right: margen, bottom: 16 },
       theme: "striped",
       styles: { font: "helvetica", fontSize: 7, cellPadding: 2.3, overflow: "linebreak" },
-      headStyles: { fillColor: azul, textColor: [255, 255, 255], fontStyle: "bold" },
+      headStyles: { fillColor: verde, textColor: [255, 255, 255], fontStyle: "bold" },
       alternateRowStyles: { fillColor: [245, 248, 251] },
       columnStyles: { 1: { cellWidth: 58 }, 7: { cellWidth: 31 }, 8: { cellWidth: 31 } },
     });
