@@ -194,12 +194,13 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   depender de Google se puede instalar con:
   npm install @fontsource-variable/geist @fontsource-variable/geist-mono
 
+- Todo lo del 18/11 se subió a GitHub en la rama
+  frontend-iconos-svg y se unió a main con el pull request #1.
+  Al entrar a main, Vercel volvió a publicar la página sola.
+
 PENDIENTE
-- Subir la rama frontend-iconos-svg (git push) y abrir el pull
-  request hacia main. El pulido, la paleta verde y la
-  identidad del 18/11 ya tienen commit, pero solo en este
-  computador.
-- Probar los cambios del 18/11 entrando con Sofía de verdad.
+- Probar los cambios del 18/11 entrando con Sofía en la página
+  publicada (https://kernellab-hazel.vercel.app).
 - Sugerencias para después (no se hicieron para no cambiar de
   más): en celular las tablas se desplazan de lado y las
   tarjetas de métricas ocupan mucho alto; se podrían mostrar
