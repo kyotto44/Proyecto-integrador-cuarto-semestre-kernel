@@ -49,18 +49,6 @@
 
 body { margin: 0; min-width: 320px; }
 #root { min-height: 100vh; }
-.kernel-logo {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  background: var(--kernel-verde-600);
-  color: white;
-  font-size: 2rem;
-  font-weight: 800;
-}
 pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 
 
@@ -181,14 +169,11 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 .kernel-brand-icon {
-  width: 42px;
-  height: 42px;
-  background: var(--kernel-verde-600);
-  border-radius: 12px;
   display: grid;
   place-items: center;
-  font-weight: 800;
-  font-size: 23px;
+  width: 42px;
+  height: 42px;
+  color: var(--kernel-verde-400);
 }
 
 .kernel-sidebar-label {
@@ -744,14 +729,7 @@ code,
 }
 
 .kernel-login-logo {
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  border-radius: 16px;
-  background: var(--kernel-verde-600);
-  font-size: 1.75rem;
-  font-weight: 800;
+  color: var(--kernel-verde-400);
 }
 
 .kernel-login-nombre {
@@ -797,11 +775,8 @@ code,
   letter-spacing: -0.02em;
 }
 
-.kernel-login-marca-movil .kernel-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  font-size: 1.375rem;
+.kernel-login-logo-movil {
+  color: var(--kernel-verde-600);
 }
 
 @media (max-width: 991px) {
@@ -822,4 +797,10 @@ code,
     align-items: start;
     padding: 48px 20px;
   }
+}
+
+/* Logo de Kernel (SVG) */
+.kernel-logo-marca {
+  display: block;
+  flex-shrink: 0;
 }

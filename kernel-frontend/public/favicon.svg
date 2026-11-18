@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#078053"/><path d="M22 16v32M22 33l17-17M27 28l13 20" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="164 101 1060 1060">
+  <style>
+    .relleno { fill: #078053; }
+    .trazo { fill: none; stroke: #078053; }
+    @media (prefers-color-scheme: dark) {
+      .relleno { fill: #5abf8d; }
+      .trazo { stroke: #5abf8d; }
+    }
+  </style>
+  <defs>
+    <mask id="corte">
+      <rect x="0" y="0" width="1254" height="1254" fill="#fff"/>
+      <circle cx="445" cy="642" r="140" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#corte)">
+    <rect class="relleno" x="343" y="131" width="192" height="999" rx="96"/>
+    <path class="trazo" d="M961 261.5 L581 641.5 L961 1021.5" stroke-width="169" stroke-linecap="round" stroke-linejoin="miter"/>
+  </g>
+  <circle class="relleno" cx="445" cy="642" r="102"/>
+</svg>

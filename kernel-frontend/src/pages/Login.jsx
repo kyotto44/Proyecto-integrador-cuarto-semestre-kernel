@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import EstadoBackend from "../components/EstadoBackend";
+import LogoKernel from "../components/LogoKernel";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Login() {
@@ -69,8 +70,8 @@ export default function Login() {
 
       {/* Panel de marca (solo en pantallas grandes) */}
       <aside className="kernel-login-marca">
-        <div className="kernel-login-logo" aria-hidden="true">
-          K
+        <div className="kernel-login-logo">
+          <LogoKernel alto={96} />
         </div>
 
         <div>
@@ -86,9 +87,7 @@ export default function Login() {
         <div className="kernel-login-caja">
 
           <div className="kernel-login-marca-movil">
-            <div className="kernel-logo" aria-hidden="true">
-              K
-            </div>
+            <LogoKernel alto={40} className="kernel-login-logo-movil" />
             <span>Kernel</span>
           </div>
 
