@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom";
 
+// Pantalla genérica para módulos aún no disponibles. Hoy ninguna ruta la usa;
+// se puede borrar si no se necesita.
 export default function ModuloPendiente({ titulo }) {
   return (
     <div className="container-fluid">

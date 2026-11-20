@@ -185,6 +185,7 @@ export default function Seguimientos() {
     useEffect(() => {
         if (!mensaje) return;
 
+        // Los mensajes de éxito se ocultan solos a los 4 segundos.
         const temporizador = setTimeout(() => {
             setMensaje("");
         }, 4000);
@@ -227,6 +228,8 @@ export default function Seguimientos() {
     // 5. SELECCIONAR TICKET
     // ==========================================
 
+    // Al cambiar de ticket se limpia lo del anterior para no mostrar su historial
+    // mientras carga el nuevo.
     function seleccionarTicket(id) {
         setTicketId(String(id));
         setSeguimientos([]);

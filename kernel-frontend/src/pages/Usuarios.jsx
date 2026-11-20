@@ -21,6 +21,8 @@ import {
 // 1. FUNCIONES AUXILIARES
 // =====================================================
 
+// Acepta varios formatos de respuesta para no depender de una sola forma del
+// backend; si llega otra, el error explica dónde revisarla.
 function extraerUsuarios(datos) {
   if (Array.isArray(datos)) return datos;
   if (Array.isArray(datos?.usuarios)) return datos.usuarios;
@@ -147,6 +149,7 @@ export default function Usuarios() {
   useEffect(() => {
     if (!mensajeExito) return;
 
+    // Los mensajes de éxito se ocultan solos a los 4 segundos.
     const temporizador = setTimeout(() => {
       setMensajeExito("");
     }, 4000);
@@ -158,6 +161,8 @@ export default function Usuarios() {
   // 5. ACTUALIZAR LISTADO
   // =====================================================
 
+  // Para recargar se incrementa "recarga": el useEffect de carga depende de ese
+  // número y vuelve a pedir los datos.
   const actualizar = useCallback(() => {
     setCargando(true);
     setRecarga((valor) => valor + 1);

@@ -1,6 +1,8 @@
 
 import { body, param } from "express-validator";
 
+// Valida el ID del ticket de la URL y el texto de la observación. El límite de
+// 2000 caracteres evita guardar textos enormes en el historial.
 export const validarSeguimiento = [
   param("id")
     .isInt({ min: 1 })

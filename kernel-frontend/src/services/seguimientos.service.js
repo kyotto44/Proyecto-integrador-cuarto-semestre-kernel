@@ -1,6 +1,8 @@
 
 import { API_URL } from "../config/api";
 
+// Función común para el historial de un ticket: agrega el token, evita la
+// caché y junta los mensajes de error del backend en uno solo.
 async function solicitar(token, ticketId, opciones = {}) {
   const id = Number(ticketId);
 

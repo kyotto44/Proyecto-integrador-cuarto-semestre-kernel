@@ -1,6 +1,8 @@
 
 import { API_URL } from "../config/api";
 
+// Función común del módulo de tickets: agrega el token, evita la caché del
+// navegador y convierte las respuestas de error en un Error con su mensaje.
 async function solicitar(token, ruta = "", opciones = {}) {
   const respuesta = await fetch(
     `${API_URL}/api/tickets${ruta}`,
@@ -46,6 +48,8 @@ async function solicitar(token, ruta = "", opciones = {}) {
   return datos;
 }
 
+// "todos" no es un estado real: en ese caso no se envía el filtro y el backend
+// devuelve todos los tickets que el rol puede ver.
 export function listarTickets(token, estado, signal) {
   const parametros = new URLSearchParams();
 

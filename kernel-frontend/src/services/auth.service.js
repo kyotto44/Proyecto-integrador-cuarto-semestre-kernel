@@ -1,6 +1,8 @@
 
 import { API_URL } from "../config/api";
 
+// Revisa que la respuesta sea JSON antes de leerla: si la API está caída, el
+// proxy puede devolver una página HTML y el error sería confuso.
 async function procesarRespuesta(respuesta) {
   const tipo = respuesta.headers.get("content-type") || "";
 

@@ -1,4 +1,6 @@
 
+// Opciones del menú lateral. "roles" decide quién ve cada opción y debe
+// coincidir con los permisos del backend. "icono" es un nombre de Icono.jsx.
 export const MENU = [
   {
     titulo: "Panel de control",

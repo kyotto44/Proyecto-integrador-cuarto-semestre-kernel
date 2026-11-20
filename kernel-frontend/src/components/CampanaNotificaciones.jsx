@@ -24,6 +24,8 @@ export default function CampanaNotificaciones() {
   const [error, setError] = useState("");
   const [cargando, setCargando] = useState(false);
 
+  // Pide la lista y el contador a la vez (Promise.all) para que la campana no
+  // muestre datos de momentos distintos.
   const actualizar = useCallback(
     async (signal) => {
       if (!token) return;
@@ -64,6 +66,8 @@ export default function CampanaNotificaciones() {
       actualizar(controller.signal)
     );
 
+    // Revisa cada 30 segundos si hay avisos nuevos. Al salir se cancela el
+    // intervalo y las peticiones pendientes.
     const intervalo = setInterval(() => {
       actualizar(controller.signal);
     }, 30000);
@@ -79,6 +83,8 @@ export default function CampanaNotificaciones() {
     actualizar,
   ]);
 
+  // Al abrir un aviso se marca como leído y, si es de un ticket, se lleva al
+  // módulo de tickets.
   async function leer(aviso) {
     if (cargando) return;
 

@@ -4,6 +4,8 @@ import { useAuth } from "../hooks/useAuth";
 import { menuPorRol } from "../config/menu";
 import LogoKernel from "./LogoKernel";
 
+// Menú lateral con las opciones del rol (menuPorRol). En celular se abre
+// encima del contenido y se cierra al elegir una opción o tocar el fondo.
 export default function Sidebar({ abierto, cerrar }) {
   const { usuario } = useAuth();
   const opciones = menuPorRol(usuario?.rol);

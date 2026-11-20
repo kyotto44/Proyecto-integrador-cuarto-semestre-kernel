@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 
+// Deben coincidir con los tipos que acepta el backend (usuarios.validator.js).
 const TIPOS_DOCUMENTO = ["CC", "TI", "CE", "PA", "PPT", "OTRO"];
 
 const VALORES_INICIALES = {
@@ -36,6 +37,8 @@ export default function FormularioUsuario({
     }));
   }
 
+  // Se normalizan los datos antes de enviarlos: documento en mayúsculas y correo
+  // en minúsculas, para no crear duplicados que solo cambian en mayúsculas.
   function enviar(evento) {
     evento.preventDefault();
 

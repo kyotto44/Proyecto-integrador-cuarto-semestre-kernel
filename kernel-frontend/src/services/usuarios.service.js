@@ -1,6 +1,8 @@
 
 import { API_URL } from "../config/api";
 
+// Cada función hace su propio fetch con el token. cache "no-store" evita
+// mostrar datos viejos de cuentas que se acaban de modificar.
 export async function listarUsuarios(token, signal) {
   const respuesta = await fetch(`${API_URL}/api/usuarios`, {
     method: "GET",
@@ -29,6 +31,8 @@ export async function listarUsuarios(token, signal) {
 }
 
 
+// La respuesta trae la contraseña temporal: se muestra una sola vez en
+// pantalla (CredencialTemporal) y no se guarda en ningún lado.
 export async function crearUsuario(token, datosUsuario) {
   const respuesta = await fetch(`${API_URL}/api/usuarios`, {
     method: "POST",

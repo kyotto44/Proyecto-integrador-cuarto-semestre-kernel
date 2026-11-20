@@ -1,6 +1,8 @@
 
 import { API_URL } from "../config/api";
 
+// Convierte la respuesta en datos o en un Error con el mensaje del backend, así
+// las pantallas solo tienen que mostrar error.message.
 async function procesarRespuesta(respuesta) {
   const datos = await respuesta.json().catch(() => null);
 

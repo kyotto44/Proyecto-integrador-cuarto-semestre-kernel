@@ -1,6 +1,9 @@
 
 import { useState } from "react";
 
+// Formulario de categorías. Si recibe "categoria" está editando; si no,
+// creando. El guardado lo hace la página (onGuardar): el modal solo recoge los
+// datos.
 export default function ModalCategoria({
   categoria,
   guardando,

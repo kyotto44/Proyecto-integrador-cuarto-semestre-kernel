@@ -1,6 +1,8 @@
 
 import { API_URL } from "../config/api";
 
+// Función común del módulo de categorías: agrega el token, evita la caché y
+// convierte las respuestas de error en un Error con su mensaje.
 async function solicitar(token, ruta = "", opciones = {}) {
   const respuesta = await fetch(
     `${API_URL}/api/categorias${ruta}`,

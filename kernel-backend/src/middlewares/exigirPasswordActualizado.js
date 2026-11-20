@@ -1,3 +1,6 @@
+// Bloquea los módulos mientras la cuenta tenga una contraseña temporal (creada
+// o restablecida por un administrador). El código PASSWORD_CHANGE_REQUIRED le
+// indica al frontend que debe llevar al usuario a cambiarla.
 export function exigirPasswordActualizado(req, res, next) {
   if (!req.usuario) {
     return res.status(401).json({

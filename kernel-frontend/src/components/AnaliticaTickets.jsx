@@ -101,6 +101,8 @@ export default function AnaliticaTickets({
   // 4. CALCULAR INDICADORES
   // ========================================
 
+  // Los totales se calculan en el navegador a partir de la lista de tickets.
+  // useMemo evita recalcularlos en cada render si la lista no cambió.
   const resumen = useMemo(() => {
     const total = tickets.length;
 
@@ -216,6 +218,8 @@ export default function AnaliticaTickets({
   // 5B. EXPORTAR REPORTE PDF
   // ========================================
 
+  // El PDF se arma con jsPDF (encabezado, métricas y tabla con autoTable) para
+  // que se vea igual en cualquier computador, sin depender de la impresora.
   function exportarReportePDF() {
     if (cargando || error || tickets.length === 0) return;
 

@@ -22,6 +22,10 @@
 
   /* Bootstrap: el color primario pasa a verde */
   --bs-primary: var(--kernel-verde-600);
+  /*
+    Bootstrap usa este valor dentro de rgba() para las transparencias
+    (text-primary, bg-primary), por eso va como números sueltos.
+  */
   --bs-primary-rgb: 7, 128, 83;
   --bs-primary-text-emphasis: var(--kernel-verde-800);
   --bs-primary-bg-subtle: var(--kernel-verde-100);
@@ -501,6 +505,10 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 /* Etiquetas de rol o tema: contorno verde (no son un estado) */
+/*
+  Bootstrap define text-bg-* con !important; para cambiar sus colores aquí
+  también hace falta.
+*/
 .badge.text-bg-primary {
   background-color: var(--kernel-verde-50) !important;
   color: var(--kernel-verde-800) !important;
@@ -665,6 +673,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Tarjetas planas con borde fino en lugar de sombra flotante */
+/*
+  !important porque las clases de Bootstrap que usan las páginas (border-0,
+  shadow-sm) también lo llevan.
+*/
 .kernel-content .card {
   border: 1px solid var(--kernel-borde) !important;
   box-shadow: none !important;

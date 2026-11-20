@@ -10,6 +10,8 @@ export default function ModalNuevoUsuario({
   onGuardar,
   onCerrar,
 }) {
+  // Bloquea el scroll de la página mientras el modal está abierto y lo devuelve
+  // como estaba al cerrarlo.
   useEffect(() => {
     if (!abierto) return;
 

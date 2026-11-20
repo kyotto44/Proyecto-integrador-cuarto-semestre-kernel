@@ -1,8 +1,11 @@
 
 import { useState } from "react";
 
+// Deben coincidir con los tipos que acepta el backend (usuarios.validator.js).
 const TIPOS_DOCUMENTO = ["CC", "TI", "CE", "PA", "PPT", "OTRO"];
 
+// Edita solo datos personales. El correo y el rol no se cambian aquí porque
+// están ligados a la cuenta de Supabase y a los permisos.
 export default function ModalEditarUsuario({
   usuario,
   guardando,

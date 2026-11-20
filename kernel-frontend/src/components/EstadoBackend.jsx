@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { consultarEstadoBackend } from "../services/estado.service";
 
+// Indicador del login que muestra si la API responde. Es útil porque la API
+// gratuita de Render tarda en despertar si nadie la ha usado.
 export default function EstadoBackend() {
   const [datos, setDatos] = useState(null);
   const [error, setError] = useState("");
@@ -19,6 +21,8 @@ export default function EstadoBackend() {
     }
   }
 
+  // Comprueba al abrir el login; "activo" evita actualizar el estado si se sale
+  // de la página antes de la respuesta.
   useEffect(() => {
     let activo = true;
     consultarEstadoBackend()

@@ -25,6 +25,8 @@ export default function NavbarPrincipal({ abrirMenu }) {
   // 2. CERRAR SESIÓN
   // ==========================================
 
+  // También se borra la marca de bienvenida, para que no aparezca si otra
+  // persona entra después en la misma pestaña.
   function cerrarSesion() {
     sessionStorage.removeItem(
       "kernel_mostrar_bienvenida"

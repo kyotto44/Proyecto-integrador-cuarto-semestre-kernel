@@ -22,6 +22,8 @@ import {
 // 1. FUNCIONES AUXILIARES
 // ============================================
 
+// Acepta varios formatos de respuesta (lista directa, { tecnicos } o { data })
+// porque no todos los endpoints devuelven la misma forma.
 function extraerLista(datos, clave) {
   if (Array.isArray(datos)) return datos;
   if (Array.isArray(datos?.[clave])) return datos[clave];
@@ -30,6 +32,7 @@ function extraerLista(datos, clave) {
   throw new Error(`Formato inesperado de ${clave}`);
 }
 
+// El rol puede venir como texto o como objeto { nombre }, según el endpoint.
 function obtenerRol(usuario) {
   return usuario.rol?.nombre || usuario.rol || "";
 }
@@ -59,6 +62,8 @@ export default function Tecnicos() {
 
   const [recarga, setRecarga] = useState(0);
 
+  // Para recargar se incrementa "recarga": el useEffect de carga depende de ese
+  // número y vuelve a pedir los datos.
   const actualizar = useCallback(() => {
     setRecarga((anterior) => anterior + 1);
   }, []);
@@ -116,6 +121,7 @@ export default function Tecnicos() {
   useEffect(() => {
     if (!mensaje) return;
 
+    // Los mensajes de éxito se ocultan solos a los 4 segundos.
     const temporizador = setTimeout(() => {
       setMensaje("");
     }, 4000);
@@ -127,6 +133,8 @@ export default function Tecnicos() {
   // 5. USUARIOS ELEGIBLES
   // ============================================
 
+  // Solo se puede crear perfil técnico para cuentas con rol técnico, activas y
+  // que todavía no tengan uno.
   const usuariosDisponibles = useMemo(() => {
     const vinculados = new Set(
       tecnicos.map((tecnico) =>
