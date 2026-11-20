@@ -1,3 +1,5 @@
+// Evita que un admin cree cuentas con más poder que el suyo: solo el
+// superadmin puede asignar los roles admin y superadmin.
 export function validarAsignacionRol(req, res, next) {
   const solicitante = req.usuario.rol;
   const rolSolicitado = req.body.rol;

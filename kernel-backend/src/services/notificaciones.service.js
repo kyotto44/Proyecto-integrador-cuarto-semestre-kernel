@@ -17,6 +17,7 @@ export async function listarNotificaciones(usuarioId) {
     FROM public.notificaciones
     WHERE usuario_id = $1
     ORDER BY fecha_creacion DESC, id DESC
+    -- Con 40 basta para la campana y se evita traer todo el historial.
     LIMIT 40
     `,
     [usuarioId]
@@ -47,6 +48,7 @@ export async function marcarLeida(usuarioId, id) {
     UPDATE public.notificaciones
     SET
       leida = TRUE,
+      -- COALESCE conserva la primera fecha de lectura si se marca dos veces.
       fecha_lectura = COALESCE(fecha_lectura, NOW())
     WHERE id = $1
       AND usuario_id = $2

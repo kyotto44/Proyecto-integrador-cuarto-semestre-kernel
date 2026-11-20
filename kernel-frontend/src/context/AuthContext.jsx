@@ -8,6 +8,8 @@ import {
   cambiarPassword as solicitarCambio,
 } from "../services/auth.service";
 
+// El token va en sessionStorage: dura mientras la pestaña esté abierta y se
+// borra al cerrarla, más seguro que localStorage en equipos compartidos.
 const CLAVE_SESION = "kernel_access_token";
 
 export function AuthProvider({ children }) {
@@ -15,7 +17,11 @@ export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
   const [cargandoSesion, setCargandoSesion] = useState(true);
 
+  // Al recargar la página se intenta recuperar la sesión: el token guardado se
+  // valida pidiendo el perfil al backend y, si ya no sirve, se borra.
   useEffect(() => {
+    // "activo" evita actualizar el estado si el componente se desmonta antes de
+    // que responda el backend.
     let activo = true;
 
     async function restaurarSesion() {
@@ -57,6 +63,8 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
+  // Primero obtiene el token y luego el perfil; el token solo se guarda si los
+  // dos pasos salen bien.
   async function login(email, password) {
     const respuesta = await iniciarSesion(email, password);
 

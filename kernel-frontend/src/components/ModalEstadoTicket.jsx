@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 
+// Nombres legibles de los estados para el selector.
 const ETIQUETAS = {
   abierto: "Abierto",
   asignado: "Asignado",
@@ -10,6 +11,9 @@ const ETIQUETAS = {
   reabierto: "Reabierto",
 };
 
+// Solo ofrece las transiciones permitidas (las calcula la página) y pide la
+// solución al resolver o cerrar, igual que el backend, para avisar antes de
+// enviar.
 export default function ModalEstadoTicket({
   ticket,
   transiciones = [],

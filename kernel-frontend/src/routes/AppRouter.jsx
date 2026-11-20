@@ -20,6 +20,8 @@ import Tickets from "../pages/Tickets";
 import Seguimientos from "../pages/Seguimientos";
 
 
+// Según la respuesta, el perfil trae debeCambiarPassword o
+// debe_cambiar_password; se aceptan las dos formas.
 function requiereCambio(usuario) {
   return Boolean(
     usuario?.debeCambiarPassword ||
@@ -27,6 +29,8 @@ function requiereCambio(usuario) {
   );
 }
 
+// Si ya hay sesión no tiene sentido mostrar el login: se envía al panel o, si
+// la contraseña es temporal, a cambiarla.
 function RutaLogin() {
   const { usuario, cargandoSesion } = useAuth();
 
@@ -54,6 +58,8 @@ function RutaLogin() {
   return <Login />;
 }
 
+// Oculta las pantallas que el rol no puede usar. Es solo comodidad: la
+// protección real está en el backend, que responde 403.
 function RutaPorRol({ roles, children }) {
   const { usuario } = useAuth();
 

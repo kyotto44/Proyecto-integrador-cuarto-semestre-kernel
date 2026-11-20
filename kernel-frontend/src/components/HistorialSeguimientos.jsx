@@ -14,6 +14,8 @@ function formatearFecha(valor) {
   });
 }
 
+// Si el autor ya no tiene nombre (por ejemplo, se borró), se muestra su número
+// en vez de dejar el espacio vacío.
 function obtenerNombreAutor(seguimiento) {
   const nombre = [
     seguimiento.autor_nombre,
@@ -43,6 +45,8 @@ function formatearRol(rol) {
 export default function HistorialSeguimientos({
   seguimientos = [],
 }) {
+  // Se ordena por fecha y, si dos coinciden, por ID, para que el historial se lea
+  // en el mismo orden en que pasaron las cosas.
   const registrosOrdenados = [...seguimientos].sort(
     (a, b) => {
       const fechaA = new Date(a.fecha_registro).getTime();

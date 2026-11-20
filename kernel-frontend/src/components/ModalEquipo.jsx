@@ -3,6 +3,9 @@ import { TIPOS_EQUIPO } from "../services/equipos.service";
 
 // Formulario para registrar o editar un equipo.
 // Si llegan "clientes" (solo el admin), pide escoger el dueño.
+// Formulario de equipos. Cuando lo usa un administrador también pide el
+// cliente dueño (pedirCliente); el cliente no lo elige porque el backend usa
+// su propia cuenta.
 export default function ModalEquipo({
   equipo,
   clientes = [],
@@ -42,6 +45,8 @@ export default function ModalEquipo({
     });
   }
 
+  // El botón Guardar se desactiva hasta tener lo obligatorio; el backend valida
+  // de nuevo.
   const incompleto =
     !formulario.marca.trim() ||
     !formulario.modelo.trim() ||

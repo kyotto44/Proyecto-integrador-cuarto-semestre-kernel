@@ -19,6 +19,8 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!token) { return; }
+    // Carga los tickets para las gráficas; se cancela si el usuario cambia de
+    // página antes de que respondan.
     const controlador = new AbortController();
     async function cargarAnalitica() {
       setCargandoAnalitica(true);
@@ -36,6 +38,8 @@ export default function Dashboard() {
     return () => controlador.abort();
   }, [token, recargaAnalitica]);
 
+  // La bienvenida solo aparece justo después de iniciar sesión: el login deja una
+  // marca en sessionStorage que se borra al cerrar el aviso.
   const [mostrarBienvenida, setMostrarBienvenida] = useState(
     () =>
       sessionStorage.getItem("kernel_mostrar_bienvenida") === "1"

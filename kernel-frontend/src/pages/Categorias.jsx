@@ -35,6 +35,8 @@ export default function Categorias() {
   const [procesandoId, setProcesandoId] = useState(null);
   const [recarga, setRecarga] = useState(0);
 
+  // Para recargar se incrementa "recarga": el useEffect de carga depende de ese
+  // número y vuelve a pedir los datos.
   const actualizar = useCallback(() => {
     setRecarga((anterior) => anterior + 1);
   }, []);
@@ -91,6 +93,7 @@ export default function Categorias() {
   useEffect(() => {
     if (!mensaje) return;
 
+    // Los mensajes de éxito se ocultan solos a los 4 segundos.
     const temporizador = setTimeout(() => {
       setMensaje("");
     }, 4000);

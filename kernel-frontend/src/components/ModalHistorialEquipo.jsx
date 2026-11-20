@@ -4,6 +4,8 @@ import { useAuth } from "../hooks/useAuth";
 import { historialEquipo } from "../services/equipos.service";
 
 // Mismos nombres y colores de estado que la pantalla de Tickets
+// Nombre y color de cada estado; deben coincidir con los de la tabla de
+// tickets para que se lean igual en todo el sistema.
 const ESTADOS = {
   abierto: ["Abierto", "text-bg-info"],
   asignado: ["Asignado", "text-bg-violeta"],
@@ -26,6 +28,8 @@ export default function ModalHistorialEquipo({ equipo, onCerrar }) {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    // Carga el historial al abrir y cancela la petición si se cierra antes de que
+    // responda.
     const controlador = new AbortController();
 
     historialEquipo(token, equipo.id, controlador.signal)

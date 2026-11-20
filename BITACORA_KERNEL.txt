@@ -213,6 +213,25 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   escritorio y celular, menú lateral, favicon y un PDF de
   prueba con datos de ejemplo.
 
+20/11/2026
+- Se comentó el código explicando POR QUÉ está cada parte (no
+  qué hace línea por línea). 231 líneas de comentario en 61
+  archivos; no se cambió ni se borró ninguna línea de código.
+  - Backend: middlewares de permisos (por qué se responde 404 y
+    no 403, por qué los IDs se pasan a número), la máquina de
+    estados de los tickets, los bloqueos FOR UPDATE, los
+    clientes de Supabase y las notificaciones (las crean
+    triggers de la base de datos). Dentro de las consultas SQL
+    los comentarios van con -- para no romperlas.
+  - Frontend: rutas protegidas, sesión en sessionStorage,
+    servicios, modales, páginas (recarga, mensajes que se
+    ocultan solos, transiciones permitidas por rol) y CSS (por
+    qué algunos estilos usan !important).
+  - Quedó marcado como código que no se usa: src/App.css y la
+    página ModuloPendiente.jsx.
+  Funciona: lint y build sin errores y todos los archivos del
+  backend pasan la revisión de sintaxis de Node.
+
 PENDIENTE
 - Probar los cambios del 18/11 entrando con Sofía en la página
   publicada (https://kernellab-hazel.vercel.app).

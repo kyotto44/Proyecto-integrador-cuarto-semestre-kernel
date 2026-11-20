@@ -13,6 +13,8 @@ export default function ModalAsignarTecnico({
     ticket.tecnico_id ? String(ticket.tecnico_id) : ""
   );
 
+  // Solo se ofrecen técnicos disponibles y con cuenta activa; el backend lo
+  // vuelve a comprobar al asignar.
   const elegibles = tecnicos.filter(
     (tecnico) =>
       tecnico.disponible === true &&

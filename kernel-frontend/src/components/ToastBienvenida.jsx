@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 export default function ToastBienvenida({ nombre, onCerrar }) {
   const [visible, setVisible] = useState(false);
 
+  // Tres tiempos: aparece a los 50 ms (para que se vea la animación de entrada),
+  // empieza a ocultarse a los 3,8 s y se retira a los 4,3 s, cuando ya terminó
+  // de desvanecerse. Los temporizadores se limpian si el aviso se cierra antes.
   useEffect(() => {
     const inicio = setTimeout(() => setVisible(true), 50);
     const cierre = setTimeout(() => setVisible(false), 3800);

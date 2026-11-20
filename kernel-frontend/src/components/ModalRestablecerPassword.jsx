@@ -1,4 +1,6 @@
 
+// Pide confirmar antes de generar una contraseña temporal: la actual deja de
+// funcionar y la persona tendrá que cambiarla al entrar.
 export default function ModalRestablecerPassword({
   usuario,
   procesando,

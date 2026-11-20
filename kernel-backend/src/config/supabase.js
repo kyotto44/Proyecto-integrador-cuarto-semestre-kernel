@@ -10,6 +10,10 @@ if (!url || !key) {
   );
 }
 
+// Cliente con la llave pública (anon): sirve para iniciar sesión y validar
+// tokens, pero no puede saltarse los permisos de la base de datos.
+// No guarda ni renueva sesiones porque el servidor no las necesita: cada
+// petición trae su propio token.
 export const supabaseAuth = createClient(url, key, {
   auth: {
     persistSession: false,

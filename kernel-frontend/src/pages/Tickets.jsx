@@ -36,6 +36,9 @@ const ESTADOS = [
     ["reabierto", "Reabierto"],
 ];
 
+// Copia de la máquina de estados del backend, para mostrar solo los cambios
+// válidos. "abierto" no tiene opciones aquí porque pasa a "asignado" con el
+// botón Asignar, no con Gestionar estado.
 const TRANSICIONES_TICKETS = {
     abierto: [],
     asignado: ["en_proceso"],
@@ -114,6 +117,8 @@ export default function Tickets() {
     const puedeCrear = ["superadmin", "admin", "usuario"]
         .includes(rolActual);
 
+    // Para recargar se incrementa "recarga": el useEffect de carga depende de ese
+    // número y vuelve a pedir los datos.
     const actualizar = useCallback(() => {
         setCargando(true);
         setRecarga((valor) => valor + 1);
@@ -191,6 +196,7 @@ export default function Tickets() {
     useEffect(() => {
         if (!mensaje) return;
 
+        // Los mensajes de éxito se ocultan solos a los 4 segundos.
         const temporizador = setTimeout(() => {
             setMensaje("");
         }, 4000);
@@ -303,6 +309,9 @@ export default function Tickets() {
     // 5.2. TRANSICIONES PERMITIDAS
     // ==========================================
 
+    // Los administradores ven todos los cambios posibles; el técnico solo los de
+    // su trabajo (en proceso y resuelto); el cliente ninguno. El backend aplica
+    // las mismas reglas.
     function obtenerTransicionesPermitidas(ticket) {
         if (!ticket) return [];
 

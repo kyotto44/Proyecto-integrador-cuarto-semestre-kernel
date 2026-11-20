@@ -1,6 +1,8 @@
 
 import { body, param, query } from "express-validator";
 
+// Estados válidos de un ticket. Deben coincidir con los que acepta la tabla
+// tickets en la base de datos.
 export const ESTADOS = [
   "abierto",
   "asignado",
@@ -52,6 +54,8 @@ export const validarAsignacion = [
     .isInt({ min: 1 })
 ];
 
+// La solución es opcional aquí: el servicio la exige solo al pasar a
+// "resuelto" o "cerrado".
 export const validarCambioEstado = [
   body("estado")
     .isIn(ESTADOS),

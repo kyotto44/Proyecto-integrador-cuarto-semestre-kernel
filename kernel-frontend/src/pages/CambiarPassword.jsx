@@ -12,6 +12,8 @@ export default function CambiarPassword() {
   const [error, setError] = useState("");
   const [cargando, setCargando] = useState(false);
 
+  // Revisa aquí las mismas reglas del backend (12 a 128 caracteres y distinta de
+  // la actual) para avisar sin esperar al servidor.
   async function enviar(evento) {
     evento.preventDefault();
     setError("");

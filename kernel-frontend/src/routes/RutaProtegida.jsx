@@ -7,6 +7,9 @@ import {
 
 import { useAuth } from "../hooks/useAuth";
 
+// Puerta de las páginas privadas: espera a que se restaure la sesión, manda al
+// login si no hay usuario y obliga a cambiar la contraseña temporal antes de
+// usar el sistema.
 export default function RutaProtegida() {
   const { usuario, cargandoSesion } = useAuth();
   const location = useLocation();

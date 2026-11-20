@@ -1,10 +1,13 @@
 import Icono from "./Icono";
 import { useState } from "react";
 
+// Muestra una sola vez la contraseña temporal recién generada. Usa un zIndex
+// mayor que los demás modales porque se abre encima del que la generó.
 export default function CredencialTemporal({
   resultado,
   onCerrar,
 }) {
+  // La contraseña empieza oculta por si hay alguien mirando la pantalla.
   const [mostrar, setMostrar] = useState(false);
 
   if (!resultado) return null;

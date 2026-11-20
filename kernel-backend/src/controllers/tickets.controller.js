@@ -45,6 +45,8 @@ export async function crear(req, res, next) {
       prioridad: req.body.prioridad,
       categoria_id: req.body.categoria_id,
       equipo_id: req.body.equipo_id ?? null,
+      // El dueño y el rol salen del token (req.usuario), nunca del body, para que
+      // nadie pueda crear tickets a nombre de otra persona.
       rol: req.usuario.rol,
 
       // Identidad recuperada del JWT.

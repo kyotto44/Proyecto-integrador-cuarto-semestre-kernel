@@ -1,6 +1,9 @@
 
 import { API_URL } from "../config/api";
 
+// Función común del módulo: agrega el token, desactiva la caché del navegador
+// (los avisos cambian todo el tiempo) y permite cancelar con "signal" si el
+// componente se desmonta.
 async function solicitar(token, ruta, opciones = {}) {
   const respuesta = await fetch(
     `${API_URL}/api/notificaciones${ruta}`,

@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 
+// Formulario del perfil técnico (especialidad y disponibilidad). El guardado
+// lo hace la página (onGuardar): el modal solo recoge los datos.
 export default function ModalTecnico({
   tecnico,
   usuariosDisponibles = [],

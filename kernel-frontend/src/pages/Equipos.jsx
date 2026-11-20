@@ -37,6 +37,8 @@ export default function Equipos() {
   const [equipoHistorial, setEquipoHistorial] = useState(null);
   const [recarga, setRecarga] = useState(0);
 
+  // Para recargar se incrementa "recarga": el useEffect de carga depende de ese
+  // número y vuelve a pedir los datos.
   const actualizar = useCallback(() => {
     setCargando(true);
     setRecarga((anterior) => anterior + 1);
@@ -54,6 +56,8 @@ export default function Equipos() {
       try {
         const [datosEquipos, datosUsuarios] = await Promise.all([
           listarEquipos(token, controlador.signal),
+          // El administrador necesita la lista de clientes para registrar equipos a su
+          // nombre; el cliente no, así que se omite la petición.
           esAdmin ? listarUsuarios(token, controlador.signal) : Promise.resolve([]),
         ]);
 
@@ -80,6 +84,7 @@ export default function Equipos() {
   // Ocultar el mensaje de éxito a los 4 segundos
   useEffect(() => {
     if (!mensaje) return;
+    // Los mensajes de éxito se ocultan solos a los 4 segundos.
     const temporizador = setTimeout(() => setMensaje(""), 4000);
     return () => clearTimeout(temporizador);
   }, [mensaje]);

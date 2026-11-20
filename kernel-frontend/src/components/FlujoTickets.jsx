@@ -80,6 +80,8 @@ const posiciones = [
     { x: 20, y: 140 },
 ];
 
+// Diagrama del ciclo de vida de un ticket. Es solo informativo (no cambia
+// datos). Cada etapa se elige con clic o con el teclado (Enter o espacio).
 export default function FlujoTickets() {
     const [seleccionada, setSeleccionada] = useState(1);
 
@@ -87,6 +89,8 @@ export default function FlujoTickets() {
         (item) => item.id === seleccionada
     );
 
+    // Al llegar a la última etapa vuelve a la primera para recorrer el ciclo otra
+    // vez.
     function siguiente() {
         setSeleccionada((actual) =>
             actual === etapas.length ? 1 : actual + 1

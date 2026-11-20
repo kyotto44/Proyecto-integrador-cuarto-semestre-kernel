@@ -1,6 +1,10 @@
 
 import { pool } from "../config/db.js";
 
+// Controla el acceso a un ticket concreto para que nadie abra tickets ajenos
+// cambiando el número en la URL (ataque BOLA/IDOR). Lo ven los administradores,
+// el dueño y el técnico asignado. El ticket queda en req.ticketAutorizado para
+// que el siguiente paso no tenga que consultarlo otra vez.
 export async function autorizarTicket(req, res, next) {
   try {
     const ticketId = Number(req.params.id);
@@ -35,6 +39,7 @@ export async function autorizarTicket(req, res, next) {
     const rol = req.usuario.rol;
     const usuarioId = req.usuario.id;
 
+    // Sin acceso se responde 404 y no 403, para no confirmar que el ticket existe.
     const administrativo =
       rol === "superadmin" || rol === "admin";
 

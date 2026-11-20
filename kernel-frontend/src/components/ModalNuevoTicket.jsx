@@ -26,6 +26,8 @@ export default function ModalNuevoTicket({
   const [equipos, setEquipos] = useState([]);
 
   useEffect(() => {
+    // El cliente puede asociar el ticket a uno de sus equipos; los inactivos no se
+    // ofrecen porque el backend los rechaza.
     if (!esCliente || !token) return;
     const controlador = new AbortController();
 
@@ -47,6 +49,8 @@ export default function ModalNuevoTicket({
     }));
   }
 
+  // Los IDs se envían como número y equipo_id como null si no se eligió, que es
+  // lo que espera el validador del backend.
   function enviar(evento) {
     evento.preventDefault();
 

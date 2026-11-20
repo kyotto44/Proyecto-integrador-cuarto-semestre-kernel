@@ -1,4 +1,6 @@
 import Icono from "./Icono";
+// Pide confirmar antes de activar o desactivar una cuenta, porque desactivarla
+// deja a la persona sin acceso de inmediato.
 export default function ModalEstadoUsuario({
   usuario,
   guardando,

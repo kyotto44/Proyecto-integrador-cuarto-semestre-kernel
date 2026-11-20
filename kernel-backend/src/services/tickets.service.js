@@ -7,6 +7,8 @@ const CAMPOS = `
   fecha_creacion, fecha_actualizacion, fecha_cierre
 `;
 
+// Máquina de estados: desde cada estado solo se puede pasar a los de su lista.
+// Así nadie salta de "abierto" a "cerrado" sin que el ticket se atienda.
 const TRANSICIONES = {
   abierto: ["asignado"],
   asignado: ["en_proceso"],
@@ -26,6 +28,9 @@ function errorHttp(mensaje, status) {
 // 1. LISTADO SEGÚN IDENTIDAD
 // ==========================================
 
+// Una sola consulta para todos los roles: los administradores ven todo, el
+// usuario sus tickets y el técnico los que tiene asignados. El filtro va en SQL
+// para no traer filas que luego habría que descartar.
 export async function listarTickets(estado, usuario) {
   const administrativo =
     ["superadmin", "admin"].includes(usuario.rol);
@@ -93,6 +98,8 @@ export async function crearTicket(datos) {
 
   // Si viene un equipo: debe estar activo y ser del cliente.
   // El admin puede usar cualquier equipo activo.
+  // Si el ticket trae equipo, debe estar activo y ser del mismo cliente
+  // (un administrador puede usar cualquiera).
   if (equipo_id) {
     const administrativo =
       ["superadmin", "admin"].includes(rol);
@@ -115,6 +122,8 @@ export async function crearTicket(datos) {
   }
 
   const { rows } = await pool.query(
+    // INSERT ... SELECT: solo inserta si la categoría existe y está activa. Si no,
+    // no devuelve filas y se responde 409.
     `INSERT INTO public.tickets (
        titulo,
        descripcion,
@@ -153,6 +162,9 @@ export async function crearTicket(datos) {
 // 4. ASIGNAR TÉCNICO
 // ==========================================
 
+// Un solo UPDATE con EXISTS: asigna solo si el técnico está disponible, activo
+// y tiene rol técnico. Al ser una sola sentencia no hay carreras entre la
+// verificación y la escritura.
 export async function asignarTecnico(ticketId, tecnicoId) {
   const { rows } = await pool.query(
     `UPDATE public.tickets t
@@ -206,6 +218,8 @@ export async function cambiarEstado(
        LEFT JOIN public.tecnicos te
          ON te.id = t.tecnico_id
        WHERE t.id = $1
+       -- FOR UPDATE bloquea la fila hasta el COMMIT: si dos personas cambian el estado
+       -- a la vez, la segunda espera y se valida contra el estado ya actualizado.
        FOR UPDATE OF t`,
       [ticketId]
     );
@@ -238,6 +252,8 @@ export async function cambiarEstado(
       }
     }
 
+    // Si no envían solución se conserva la anterior; al resolver o cerrar es
+    // obligatoria.
     const solucionFinal =
       solucion === undefined || solucion === null
         ? actual.solucion

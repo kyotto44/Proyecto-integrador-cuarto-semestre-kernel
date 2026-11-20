@@ -5,6 +5,8 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import NavbarPrincipal from "../components/NavbarPrincipal";
 
+// Estructura común de las páginas privadas: menú lateral, barra superior y el
+// contenido de cada ruta (Outlet). menuAbierto controla el menú en celular.
 export default function MainLayout() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
