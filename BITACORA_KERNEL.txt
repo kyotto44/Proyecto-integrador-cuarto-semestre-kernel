@@ -232,6 +232,16 @@ Repo: https://github.com/kyotto44/Proyecto-integrador-cuarto-semestre-kernel
   Funciona: lint y build sin errores y todos los archivos del
   backend pasan la revisión de sintaxis de Node.
 
+- Se subió al repo el manual de usuario
+  (Manual_de_usuario_Kernel.docx, en la carpeta principal).
+- Ojo: el manual tiene partes viejas que toca actualizar: dice
+  que la interfaz muestra "NexDesk", que el equipo no se
+  registra aparte (ya existe el módulo Equipos), que la
+  dirección es localhost (ya está publicado en Vercel), y la
+  tabla de módulos no incluye Equipos. Además habla de
+  "Olvidé mi contraseña" en el login, pero esa opción no está
+  en la página.
+
 PENDIENTE
 - Probar los cambios del 18/11 entrando con Sofía en la página
   publicada (https://kernellab-hazel.vercel.app).
